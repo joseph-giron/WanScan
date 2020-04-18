@@ -170,7 +170,7 @@ namespace Wan_Thingy
                 
                 string contents = Get(tbHostList.Lines[x], "admin");
                 string contents_2 = Get(tbHostList.Lines[x], "password");
-                string contents_3 = Get(tbHostList.Lines[x], "12345");
+                string contents_3 = Get(tbHostList.Lines[x], "password1"); // actiontec default
                 // try with admin / admin
                 // now admin / password
 
