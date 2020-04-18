@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -57,7 +57,7 @@ namespace Wan_Thingy
 
 
         }
-        public string Get(string uri)
+        public string Get(string uri, string passwd)
         {
             try
             {
@@ -69,8 +69,8 @@ namespace Wan_Thingy
 
                 // might as well add the basic auth header, save some time
                 string username = "admin";
-                string password = "admin";
-                string encoded = System.Convert.ToBase64String(System.Text.Encoding.GetEncoding("ISO-8859-1").GetBytes(username + ":" + password));
+                //string password = "admin"; // just grab from args[]
+                string encoded = System.Convert.ToBase64String(System.Text.Encoding.GetEncoding("ISO-8859-1").GetBytes(username + ":" + passwd));
                 request.Headers.Add("Authorization", "Basic " + encoded);
 
                 /*
@@ -114,7 +114,7 @@ namespace Wan_Thingy
                         break;
                 }
 
-                
+
                 HttpWebResponse response = (HttpWebResponse)request.GetResponse();
                 
 
@@ -129,9 +129,11 @@ namespace Wan_Thingy
                 }
                 else
                 {
-                    using (StreamReader reader = new StreamReader(stream))
+                    // using (StreamReader reader = new StreamReader(stream))
+                    using (StreamReader kek = new StreamReader(stream))
                     {
-                        return reader.ReadToEnd();
+                        //return reader.Read
+                        return kek.ReadToEnd();
                     }
                 }
                 
@@ -141,6 +143,7 @@ namespace Wan_Thingy
                 return "got an error accessing " + uri + "\r\n" + ex.Message + "\r\n";
             }
         }
+       
         public string handleit(string cock)
         {
             for (int y = 0; y < tbExcludeList.Lines.Length; y++)
@@ -163,19 +166,37 @@ namespace Wan_Thingy
                 //label1.Text = "Status: working on item " + x.ToString() + " of " + tbHostList.Lines.Length.ToString();
                 StreamWriter sw = new StreamWriter(filename, true);
                 int percent = (x + 1) * 100 / tbHostList.Lines.Length;
-                string contents = Get(tbHostList.Lines[x]);
                 
+                
+                string contents = Get(tbHostList.Lines[x], "admin");
+                string contents_2 = Get(tbHostList.Lines[x], "password");
+                string contents_3 = Get(tbHostList.Lines[x], "12345");
+                // try with admin / admin
+                // now admin / password
+
                 sw.WriteLine("========================= " + tbHostList.Lines[x] +" =======================================\r\n\r\n");
                 if (excludelist != "")
                 {
+                    sw.WriteLine("==========================First request======================================\r\n\r\n ");
                     sw.WriteLine(handleit(contents));
+                    sw.WriteLine("==========================Second request======================================\r\n\r\n ");
+                    sw.WriteLine(handleit(contents_2));
+                    sw.WriteLine("==========================Third request======================================\r\n\r\n ");
+                    sw.WriteLine(handleit(contents_3));
+                    sw.WriteLine("\r\n\r\n");
                 }
                 else
                 {
-                    sw.WriteLine(contents);
+                    sw.WriteLine("==========================First request======================================\r\n\r\n ");
+                    sw.WriteLine(handleit(contents));
+                    sw.WriteLine("==========================Second request======================================\r\n\r\n ");
+                    sw.WriteLine(handleit(contents_2));
+                    sw.WriteLine("==========================Third request======================================\r\n\r\n ");
+                    sw.WriteLine(handleit(contents_3));
+                    sw.WriteLine("\r\n\r\n");
                 }
                 
-                sw.WriteLine("================================================================\r\n\r\n");
+                sw.WriteLine("==================================END==============================\r\n\r\n");
                 //label1.Invoke(new Action(()));
                 label1.Text = "Working on item " + x.ToString() + " of " + tbHostList.Lines.Length.ToString();
                 bg.ReportProgress(percent);
@@ -203,10 +224,6 @@ namespace Wan_Thingy
             label1.Text = "Status: Cancelled";
         }
 
-        private void textBox1_Enter(object sender, EventArgs e)
-        {
-
-        }
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -220,8 +237,6 @@ namespace Wan_Thingy
         private void bg_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
             
-
-
             pb.Value = e.ProgressPercentage;
             
         }
@@ -265,5 +280,7 @@ namespace Wan_Thingy
             return str.IndexOf(substring, comp) >= 0;
         }
     }
+
+    
 
 }
