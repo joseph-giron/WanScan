@@ -57,32 +57,40 @@ namespace Wan_Thingy
 
 
         }
-        public string Get(string uri, string passwd)
+        public string Get(string uri)
         {
+            string testexception = "The remote server returned an error: (401) Unauthorized.";
+            int tstcounter = 0;
+            string username = "admin";
+            string password = "";
+            here:
             try
             {
+                
+                 // default is admin /  no password
+                
                 // ignore ssl error
                 ServicePointManager.ServerCertificateValidationCallback += (sender, certificate, chain, sslPolicyErrors) => true;
                 HttpWebRequest request = (HttpWebRequest)WebRequest.Create(uri);
                 request.AutomaticDecompression = DecompressionMethods.GZip | DecompressionMethods.Deflate;
                 request.Timeout = Convert.ToInt32(tbTimeOut.Text) * 1000;
 
-                // might as well add the basic auth header, save some time
-                string username = "admin";
-                //string password = "admin"; // just grab from args[]
-                string encoded = System.Convert.ToBase64String(System.Text.Encoding.GetEncoding("ISO-8859-1").GetBytes(username + ":" + passwd));
+                //basic auth header
+                
+                if(tstcounter == 1)
+                {
+                    password = "admin";
+                }
+                if(tstcounter == 2)
+                {
+                    password = "password";
+                }
+                if (tstcounter == 3)
+                {
+                    password = "password1";
+                }
+                string encoded = System.Convert.ToBase64String(System.Text.Encoding.GetEncoding("ISO-8859-1").GetBytes(username + ":" + password));
                 request.Headers.Add("Authorization", "Basic " + encoded);
-
-                /*
-                 * Google Bot
-                   Bing Bot
-                   DuckDuckBot
-                   Baidu Bot
-                   Yandex Bot
-                   Internet Explorer
-                   Firefox
-                   Chrome
-                */
                 switch (lbUA.Text)
                 {
                     case "Google Bot":
@@ -115,32 +123,44 @@ namespace Wan_Thingy
                 }
 
 
-                HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+                HttpWebResponse response = (HttpWebResponse)request.GetResponse(); // make request
+                if(response.StatusCode == HttpStatusCode.Unauthorized) // 401 / unauthorized? go back and try again with another password
+                    // never makes it here, put it in the catch statement with a check
+                {
+                    tstcounter++;
+                    goto here; // fuck yeah, goto! 
+                }
                 
-
+                // not a 401? 
                 Stream stream = response.GetResponseStream();
+                
                 if(response.ContentType == "image/jpeg") // bug
-                {
                     return "jpeg file";
-                }
-                else if(response.Server == "Motion/4.0")
-                {
+                if(response.Server == "Motion/4.0")
                     return "webcam stream";
-                }
-                else
-                {
-                    // using (StreamReader reader = new StreamReader(stream))
+            
+                
                     using (StreamReader kek = new StreamReader(stream))
                     {
                         //return reader.Read
                         return kek.ReadToEnd();
                     }
-                }
+                
                 
             }
             catch (Exception ex)
             {
-                return "got an error accessing " + uri + "\r\n" + ex.Message + "\r\n";
+                
+                //MessageBox.Show(ex.ToString());
+                if(ex.Message == testexception && tstcounter < 3)
+                {
+                    tstcounter++;
+                    goto here; // fuck yeah, goto! 
+                }
+                else
+                {
+                    return "got an error accessing " + uri + "\r\n" + ex.Message + "\r\n";
+                }
             }
         }
        
@@ -163,49 +183,30 @@ namespace Wan_Thingy
 
             for (int x = 0; x < tbHostList.Lines.Length; x++)
             {
-                //label1.Text = "Status: working on item " + x.ToString() + " of " + tbHostList.Lines.Length.ToString();
                 StreamWriter sw = new StreamWriter(filename, true);
                 int percent = (x + 1) * 100 / tbHostList.Lines.Length;
-                
-                
-                string contents = Get(tbHostList.Lines[x], "admin");
-                string contents_2 = Get(tbHostList.Lines[x], "password");
-                string contents_3 = Get(tbHostList.Lines[x], "password1"); // actiontec default
-                // try with admin / admin
-                // now admin / password
+                string contents = Get(tbHostList.Lines[x]);
+               
 
                 sw.WriteLine("========================= " + tbHostList.Lines[x] +" =======================================\r\n\r\n");
                 if (excludelist != "")
                 {
-                    sw.WriteLine("==========================First request======================================\r\n\r\n ");
+                    sw.WriteLine("================================================================\r\n\r\n ");
                     sw.WriteLine(handleit(contents));
-                    sw.WriteLine("==========================Second request======================================\r\n\r\n ");
-                    sw.WriteLine(handleit(contents_2));
-                    sw.WriteLine("==========================Third request======================================\r\n\r\n ");
-                    sw.WriteLine(handleit(contents_3));
                     sw.WriteLine("\r\n\r\n");
                 }
                 else
                 {
-                    sw.WriteLine("==========================First request======================================\r\n\r\n ");
+                    sw.WriteLine("================================================================\r\n\r\n ");
                     sw.WriteLine(handleit(contents));
-                    sw.WriteLine("==========================Second request======================================\r\n\r\n ");
-                    sw.WriteLine(handleit(contents_2));
-                    sw.WriteLine("==========================Third request======================================\r\n\r\n ");
-                    sw.WriteLine(handleit(contents_3));
                     sw.WriteLine("\r\n\r\n");
                 }
-                
+
                 sw.WriteLine("==================================END==============================\r\n\r\n");
-                //label1.Invoke(new Action(()));
                 label1.Text = "Working on item " + x.ToString() + " of " + tbHostList.Lines.Length.ToString();
                 bg.ReportProgress(percent);
                 sw.Close();
-
-
             }
-           
-            
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -221,10 +222,8 @@ namespace Wan_Thingy
             btnClearURL.Enabled = true;
             btnClearFilter.Enabled = true;
             btnClearURL.Enabled = true;
-            label1.Text = "Status: Cancelled";
+            label1.Text = "Status: Cancelled!";
         }
-
-
         private void Form1_Load(object sender, EventArgs e)
         {
             Form1.CheckForIllegalCrossThreadCalls = false;
@@ -236,9 +235,7 @@ namespace Wan_Thingy
 
         private void bg_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
-            
             pb.Value = e.ProgressPercentage;
-            
         }
 
         private void bg_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
@@ -280,7 +277,4 @@ namespace Wan_Thingy
             return str.IndexOf(substring, comp) >= 0;
         }
     }
-
-    
-
 }
