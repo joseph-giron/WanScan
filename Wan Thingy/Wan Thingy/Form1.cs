@@ -11,6 +11,7 @@ using System.Threading;
 using System.Net;
 using System.IO;
 using System.Windows.Shell;
+using System.Xml;
 
 namespace Wan_Thingy
 {
@@ -260,6 +261,69 @@ namespace Wan_Thingy
         private void btnClearFilter_Click(object sender, EventArgs e)
         {
             tbExcludeList.Clear();
+        }
+
+        private void btnLoadURLS_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog ofd = new OpenFileDialog()
+            {
+            FileName = "Select a file...",
+            Filter = "Text Files (*.txt)|*.txt",
+                // Filter = "XML Files (*.xml)|*.xml|Text Files (*.txt)|*.txt",
+                Title = "Open text file"
+            };
+            if ( ofd.ShowDialog() == DialogResult.OK)
+            {
+                string filename = ofd.FileName;
+                if(filename == "")
+                {
+                    return;
+                }
+                if (Path.GetExtension(filename) == ".txt")
+                    tbHostList.Text = File.ReadAllText(filename);
+                if(Path.GetExtension(filename) == ".xml")
+                    ReadSomeXML(filename); 
+
+
+            }
+
+        }
+        private void ReadSomeXML(string filename)
+        {
+
+            // what a god damned pain in the fucking dick.
+            // I'll try this again later. for now, loading text is fine by me 
+            XmlDocument xmlDoc = new XmlDocument();
+            xmlDoc.Load(filename);
+            XmlNodeList nls = xmlDoc.SelectNodes("//host/address");
+             foreach (XmlNode mynode in nls)
+            {
+
+                mynode.SelectNodes("//addr");
+                
+                tbHostList.Text += "http://" + (mynode.Attributes["address"].Value + ": " + mynode.Attributes["portid"].Value);
+            }
+        }
+
+        private void btnLoadFilters_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog ofd = new OpenFileDialog()
+            {
+                FileName = "Select a text file",
+                Filter = "Text files (*.txt)|*.txt",
+                Title = "Open text file"
+            };
+            if (ofd.ShowDialog() == DialogResult.OK)
+            {
+                string filename = ofd.FileName;
+                if (filename == "")
+                {
+                    return;
+                }
+                tbExcludeList.Text = File.ReadAllText(filename);
+               
+
+            }
         }
     }
     public static class StringExtensions
