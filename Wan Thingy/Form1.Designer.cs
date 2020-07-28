@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.button1 = new System.Windows.Forms.Button();
             this.tbHostList = new System.Windows.Forms.TextBox();
@@ -42,10 +43,14 @@
             this.tbTimeOut = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.lbUA = new System.Windows.Forms.ListBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label6 = new System.Windows.Forms.Label();
             this.btnClearURL = new System.Windows.Forms.Button();
             this.btnClearFilter = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnLoadFilters = new System.Windows.Forms.Button();
+            this.btnLoadURLS = new System.Windows.Forms.Button();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.cbDebug = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -69,7 +74,6 @@
             this.tbHostList.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.tbHostList.Size = new System.Drawing.Size(291, 174);
             this.tbHostList.TabIndex = 2;
-           
             // 
             // bg
             // 
@@ -120,18 +124,18 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(12, 235);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(186, 13);
+            this.label2.Size = new System.Drawing.Size(113, 13);
             this.label2.TabIndex = 6;
-            this.label2.Text = "Exclude These Strings (one per line)...";
+            this.label2.Text = "Exclude These Strings";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(12, 6);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(165, 13);
+            this.label3.Size = new System.Drawing.Size(92, 13);
             this.label3.TabIndex = 7;
-            this.label3.Text = "URL List To Scan (one per line)...";
+            this.label3.Text = "URL List To Scan";
             // 
             // label4
             // 
@@ -178,16 +182,6 @@
             this.lbUA.Size = new System.Drawing.Size(132, 54);
             this.lbUA.TabIndex = 12;
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::Wan_Thingy.Properties.Resources._1558365013674;
-            this.pictureBox1.Location = new System.Drawing.Point(309, 192);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(210, 184);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 13;
-            this.pictureBox1.TabStop = false;
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -199,7 +193,7 @@
             // 
             // btnClearURL
             // 
-            this.btnClearURL.Location = new System.Drawing.Point(12, 207);
+            this.btnClearURL.Location = new System.Drawing.Point(228, 207);
             this.btnClearURL.Name = "btnClearURL";
             this.btnClearURL.Size = new System.Drawing.Size(75, 25);
             this.btnClearURL.TabIndex = 14;
@@ -209,7 +203,7 @@
             // 
             // btnClearFilter
             // 
-            this.btnClearFilter.Location = new System.Drawing.Point(12, 382);
+            this.btnClearFilter.Location = new System.Drawing.Point(228, 382);
             this.btnClearFilter.Name = "btnClearFilter";
             this.btnClearFilter.Size = new System.Drawing.Size(75, 25);
             this.btnClearFilter.TabIndex = 14;
@@ -217,12 +211,56 @@
             this.btnClearFilter.UseVisualStyleBackColor = true;
             this.btnClearFilter.Click += new System.EventHandler(this.btnClearFilter_Click);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(309, 192);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(210, 184);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 13;
+            this.pictureBox1.TabStop = false;
+            // 
+            // btnLoadFilters
+            // 
+            this.btnLoadFilters.Location = new System.Drawing.Point(12, 382);
+            this.btnLoadFilters.Name = "btnLoadFilters";
+            this.btnLoadFilters.Size = new System.Drawing.Size(75, 25);
+            this.btnLoadFilters.TabIndex = 14;
+            this.btnLoadFilters.Text = "Load Filters";
+            this.btnLoadFilters.UseVisualStyleBackColor = true;
+            this.btnLoadFilters.Click += new System.EventHandler(this.btnLoadFilters_Click);
+            // 
+            // btnLoadURLS
+            // 
+            this.btnLoadURLS.Location = new System.Drawing.Point(12, 207);
+            this.btnLoadURLS.Name = "btnLoadURLS";
+            this.btnLoadURLS.Size = new System.Drawing.Size(75, 25);
+            this.btnLoadURLS.TabIndex = 14;
+            this.btnLoadURLS.Text = "Load List";
+            this.toolTip1.SetToolTip(this.btnLoadURLS, "Supports Masscan or Nmap XML files, or  text files.");
+            this.btnLoadURLS.UseVisualStyleBackColor = true;
+            this.btnLoadURLS.Click += new System.EventHandler(this.btnLoadURLS_Click);
+            // 
+            // cbDebug
+            // 
+            this.cbDebug.AutoSize = true;
+            this.cbDebug.Location = new System.Drawing.Point(312, 412);
+            this.cbDebug.Name = "cbDebug";
+            this.cbDebug.Size = new System.Drawing.Size(166, 17);
+            this.cbDebug.TabIndex = 15;
+            this.cbDebug.Text = "Don\'t try passwords, just scan";
+            this.cbDebug.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(523, 414);
+            this.ClientSize = new System.Drawing.Size(524, 441);
+            this.Controls.Add(this.cbDebug);
+            this.Controls.Add(this.btnLoadFilters);
             this.Controls.Add(this.btnClearFilter);
+            this.Controls.Add(this.btnLoadURLS);
             this.Controls.Add(this.btnClearURL);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.lbUA);
@@ -243,7 +281,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "Form1";
-            this.Text = "HTTP Range Scanner";
+            this.Text = "JoeDan";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
@@ -270,6 +308,10 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button btnClearURL;
         private System.Windows.Forms.Button btnClearFilter;
+        private System.Windows.Forms.Button btnLoadFilters;
+        private System.Windows.Forms.Button btnLoadURLS;
+        private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.CheckBox cbDebug;
     }
 }
 
