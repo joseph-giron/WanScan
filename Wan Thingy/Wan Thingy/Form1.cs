@@ -1,31 +1,24 @@
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Threading;
 using System.Net;
 using System.IO;
-using System.Windows.Shell;
 using System.Xml;
+using System.Runtime.InteropServices;
+
 
 namespace Wan_Thingy
 {
-    
     public partial class Form1 : Form
     {
         public Form1()
         {
             InitializeComponent();
         }
+        
         public string filename = "";
         public string excludelist = "";
         StringComparison comp = StringComparison.OrdinalIgnoreCase;
-
         private void button1_Click(object sender, EventArgs e)
         {
             button1.Enabled = false;
@@ -38,7 +31,6 @@ namespace Wan_Thingy
             SaveFileDialog sfd = new SaveFileDialog();
             sfd.Filter = "*Text File (.txt)|*.txt";
             sfd.ShowDialog();
-
             filename = sfd.FileName;
 
             if (filename == "")
@@ -55,34 +47,36 @@ namespace Wan_Thingy
             excludelist = tbExcludeList.Text;
             bg.RunWorkerAsync();
             return;
-
-
         }
         public string Get(string uri)
         {
             string testexception = "The remote server returned an error: (401) Unauthorized.";
             int tstcounter = 0;
+            if (cbDebug.Checked)
+            {
+                tstcounter = 4;
+            }
+            
             string username = "admin";
             string password = "";
             here:
             try
             {
-                
-                 // default is admin /  no password
-                
-                // ignore ssl error
+
+                // default is admin /  no password
+                // ignore ssl error and force TLS 1.2
+                ServicePointManager.SecurityProtocol = (SecurityProtocolType)3072;
                 ServicePointManager.ServerCertificateValidationCallback += (sender, certificate, chain, sslPolicyErrors) => true;
                 HttpWebRequest request = (HttpWebRequest)WebRequest.Create(uri);
                 request.AutomaticDecompression = DecompressionMethods.GZip | DecompressionMethods.Deflate;
                 request.Timeout = Convert.ToInt32(tbTimeOut.Text) * 1000;
 
                 //basic auth header
-                
-                if(tstcounter == 1)
+                if (tstcounter == 1)
                 {
                     password = "admin";
                 }
-                if(tstcounter == 2)
+                if (tstcounter == 2)
                 {
                     password = "password";
                 }
@@ -123,37 +117,35 @@ namespace Wan_Thingy
                         break;
                 }
 
-
                 HttpWebResponse response = (HttpWebResponse)request.GetResponse(); // make request
-                if(response.StatusCode == HttpStatusCode.Unauthorized) // 401 / unauthorized? go back and try again with another password
-                    // never makes it here, put it in the catch statement with a check
+                if (response.StatusCode == HttpStatusCode.Unauthorized) // 401 / unauthorized? go back and try again with another password
+                                                                        // never makes it here, put it in the catch statement with a check
                 {
                     tstcounter++;
                     goto here; // fuck yeah, goto! 
                 }
-                
+
                 // not a 401? 
                 Stream stream = response.GetResponseStream();
-                
-                if(response.ContentType == "image/jpeg") // bug
+
+                if (response.ContentType == "image/jpeg") // bug
                     return "jpeg file";
-                if(response.Server == "Motion/4.0")
+                if (response.ContentType == "multipart/x-mixed-replace; boundary=--BoundaryString")
+                    return "another weird jpeg server thingy";
+                if (response.Server == "Motion/4.0")
                     return "webcam stream";
-            
-                
-                    using (StreamReader kek = new StreamReader(stream))
-                    {
-                        //return reader.Read
-                        return kek.ReadToEnd();
-                    }
-                
-                
+
+                using (StreamReader kek = new StreamReader(stream))
+                {
+                    //return reader.Read
+                    return kek.ReadToEnd();
+                }
             }
             catch (Exception ex)
             {
-                
+
                 //MessageBox.Show(ex.ToString());
-                if(ex.Message == testexception && tstcounter < 3)
+                if (ex.Message == testexception && tstcounter < 3)
                 {
                     tstcounter++;
                     goto here; // fuck yeah, goto! 
@@ -164,55 +156,61 @@ namespace Wan_Thingy
                 }
             }
         }
-       
+
         public string handleit(string cock)
         {
             for (int y = 0; y < tbExcludeList.Lines.Length; y++)
             {
                 string contents = tbExcludeList.Lines[y];
-                if(cock.Contains(contents, comp))
+                if (cock.Contains(contents, comp))
                 {
                     return "Filtered some BS out...\r\n\r\n";
                 }
             }
             return cock;
 
-            }
+        }
         private void bg_DoWork(object sender, DoWorkEventArgs e)
         {
+                for (int x = 0; x < tbHostList.Lines.Length; x++)
+                {
+                if(bg.CancellationPending)
+                {
+                    e.Cancel = true;
+                    break;
+                }
+                    StreamWriter sw = new StreamWriter(filename, true);
+                    int percent = (x + 1) * 100 / tbHostList.Lines.Length;
+                    string contents = Get(tbHostList.Lines[x]);
+                    sw.WriteLine("========================= " + tbHostList.Lines[x] + " =======================================\r\n\r\n");
+                    if (excludelist != "")
+                    {
+                        sw.WriteLine("================================================================\r\n\r\n ");
+                        sw.WriteLine(handleit(contents));
+                        sw.WriteLine("\r\n\r\n");
+                    }
+                    else
+                    {
+                        sw.WriteLine("================================================================\r\n\r\n ");
+                        sw.WriteLine(handleit(contents));
+                        sw.WriteLine("\r\n\r\n");
+                    }
+
+                    sw.WriteLine("==================================END==============================\r\n\r\n");
+                    label1.Text = "Working on item " + x.ToString() + " of " + tbHostList.Lines.Length.ToString();
+                    bg.ReportProgress(percent);
+                    sw.Close();
+                }
+
             
-
-            for (int x = 0; x < tbHostList.Lines.Length; x++)
-            {
-                StreamWriter sw = new StreamWriter(filename, true);
-                int percent = (x + 1) * 100 / tbHostList.Lines.Length;
-                string contents = Get(tbHostList.Lines[x]);
-               
-
-                sw.WriteLine("========================= " + tbHostList.Lines[x] +" =======================================\r\n\r\n");
-                if (excludelist != "")
-                {
-                    sw.WriteLine("================================================================\r\n\r\n ");
-                    sw.WriteLine(handleit(contents));
-                    sw.WriteLine("\r\n\r\n");
-                }
-                else
-                {
-                    sw.WriteLine("================================================================\r\n\r\n ");
-                    sw.WriteLine(handleit(contents));
-                    sw.WriteLine("\r\n\r\n");
-                }
-
-                sw.WriteLine("==================================END==============================\r\n\r\n");
-                label1.Text = "Working on item " + x.ToString() + " of " + tbHostList.Lines.Length.ToString();
-                bg.ReportProgress(percent);
-                sw.Close();
-            }
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
+            
             bg.CancelAsync();
+            
+            // test
             pb.Value = 100;
             button1.Enabled = true;
             tbHostList.Enabled = true;
@@ -223,25 +221,46 @@ namespace Wan_Thingy
             btnClearURL.Enabled = true;
             btnClearFilter.Enabled = true;
             btnClearURL.Enabled = true;
-            label1.Text = "Status: Cancelled!";
+           
         }
         private void Form1_Load(object sender, EventArgs e)
         {
+            if(File.Exists("latestfilters.txt"))
+            { 
+                tbExcludeList.Text = File.ReadAllText("latestfilters.txt");
+            }
             Form1.CheckForIllegalCrossThreadCalls = false;
             lbUA.SelectedIndex = 0;
-            
             ToolTip tt = new ToolTip();
             tt.SetToolTip(tbHostList, "https://ip_or_host_on_each_line/");
         }
 
         private void bg_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
+
+            if (bg.CancellationPending)
+            {
+                bg.CancelAsync();
+                return;
+            }
+
             pb.Value = e.ProgressPercentage;
         }
 
+
         private void bg_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
-            label1.Text = "Status: Completed :D";
+        
+            if(e.Cancelled)
+            {
+                label1.Text = "Status: Cancelled!!!";
+            }
+            else
+            {
+                label1.Text = "Status: Completed :D";
+                
+            }
+            
             button1.Enabled = true;
             tbHostList.Enabled = true;
             tbExcludeList.Enabled = true;
@@ -250,12 +269,13 @@ namespace Wan_Thingy
             btnClearFilter.Enabled = true;
             btnClearURL.Enabled = true;
             btnClearFilter.Enabled = true;
-            btnClearURL.Enabled = true; ;
+            btnClearURL.Enabled = true;
         }
 
         private void btnClearURL_Click(object sender, EventArgs e)
         {
             tbHostList.Clear();
+   
         }
 
         private void btnClearFilter_Click(object sender, EventArgs e)
@@ -267,40 +287,36 @@ namespace Wan_Thingy
         {
             OpenFileDialog ofd = new OpenFileDialog()
             {
-            FileName = "Select a file...",
-            Filter = "Text Files (*.txt)|*.txt",
+                FileName = "Select a file...",
+                Filter = "Text Files (*.txt)|*.txt",
                 // Filter = "XML Files (*.xml)|*.xml|Text Files (*.txt)|*.txt",
                 Title = "Open text file"
             };
-            if ( ofd.ShowDialog() == DialogResult.OK)
+            if (ofd.ShowDialog() == DialogResult.OK)
             {
                 string filename = ofd.FileName;
-                if(filename == "")
+                if (filename == "")
                 {
                     return;
                 }
                 if (Path.GetExtension(filename) == ".txt")
                     tbHostList.Text = File.ReadAllText(filename);
-                if(Path.GetExtension(filename) == ".xml")
-                    ReadSomeXML(filename); 
-
+                if (Path.GetExtension(filename) == ".xml")
+                    ReadSomeXML(filename);
 
             }
 
         }
         private void ReadSomeXML(string filename)
         {
-
             // what a god damned pain in the fucking dick.
             // I'll try this again later. for now, loading text is fine by me 
             XmlDocument xmlDoc = new XmlDocument();
             xmlDoc.Load(filename);
             XmlNodeList nls = xmlDoc.SelectNodes("//host/address");
-             foreach (XmlNode mynode in nls)
+            foreach (XmlNode mynode in nls)
             {
-
                 mynode.SelectNodes("//addr");
-                
                 tbHostList.Text += "http://" + (mynode.Attributes["address"].Value + ": " + mynode.Attributes["portid"].Value);
             }
         }
@@ -321,8 +337,6 @@ namespace Wan_Thingy
                     return;
                 }
                 tbExcludeList.Text = File.ReadAllText(filename);
-               
-
             }
         }
     }
@@ -337,7 +351,6 @@ namespace Wan_Thingy
             else if (!Enum.IsDefined(typeof(StringComparison), comp))
                 throw new ArgumentException("comp is not a member of StringComparison",
                                             "comp");
-
             return str.IndexOf(substring, comp) >= 0;
         }
     }
