@@ -137,8 +137,11 @@ namespace Wan_Thingy
 
                 using (StreamReader kek = new StreamReader(stream))
                 {
-                    //return reader.Read
-                    return kek.ReadToEnd();
+                    Char[] fuk = new char[4096]; // fuck yes, speed shit up by only reading the first 4 kb
+                    kek.Read(fuk, 0, fuk.Length);
+                    string s = new string(fuk);
+                    return s;
+                    //return kek.ReadToEnd();
                 }
             }
             catch (Exception ex)
