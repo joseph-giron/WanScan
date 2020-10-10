@@ -1,0 +1,9 @@
+G:\C Projects\Visual Studio\Projects\Wan Thingy\Wan Thingy\bin\Debug\Wan Thingy.exe.config
+G:\C Projects\Visual Studio\Projects\Wan Thingy\Wan Thingy\bin\Debug\Wan Thingy.exe
+G:\C Projects\Visual Studio\Projects\Wan Thingy\Wan Thingy\bin\Debug\Wan Thingy.pdb
+G:\C Projects\Visual Studio\Projects\Wan Thingy\Wan Thingy\obj\Debug\Wan_Thingy.Form1.resources
+G:\C Projects\Visual Studio\Projects\Wan Thingy\Wan Thingy\obj\Debug\Wan_Thingy.Properties.Resources.resources
+G:\C Projects\Visual Studio\Projects\Wan Thingy\Wan Thingy\obj\Debug\Wan Thingy.csproj.GenerateResource.Cache
+G:\C Projects\Visual Studio\Projects\Wan Thingy\Wan Thingy\obj\Debug\Wan Thingy.exe
+G:\C Projects\Visual Studio\Projects\Wan Thingy\Wan Thingy\obj\Debug\Wan Thingy.pdb
+G:\C Projects\Visual Studio\Projects\Wan Thingy\Wan Thingy\obj\Debug\Wan Thingy.csprojResolveAssemblyReference.cache
