@@ -1,0 +1,6 @@
+G:\C Projects\Visual Studio\Projects\WanThingConsole\WanThingConsole\bin\Debug\WanThingConsole.exe.config
+G:\C Projects\Visual Studio\Projects\WanThingConsole\WanThingConsole\bin\Debug\WanThingConsole.exe
+G:\C Projects\Visual Studio\Projects\WanThingConsole\WanThingConsole\bin\Debug\WanThingConsole.pdb
+G:\C Projects\Visual Studio\Projects\WanThingConsole\WanThingConsole\obj\Debug\WanThingConsole.csprojResolveAssemblyReference.cache
+G:\C Projects\Visual Studio\Projects\WanThingConsole\WanThingConsole\obj\Debug\WanThingConsole.exe
+G:\C Projects\Visual Studio\Projects\WanThingConsole\WanThingConsole\obj\Debug\WanThingConsole.pdb
