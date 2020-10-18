@@ -19,7 +19,80 @@ namespace WanThingConsole
         public static string hostsfile = "latesthosts.txt";
         static void Main(string[] args)
         {
-           if(!File.Exists(filterfile))
+            Console.WriteLine("                                    ooo");
+            Console.WriteLine("                               ooo$$$$$$$$$$$oo");
+            Console.WriteLine("                            o$$$$$$$$$$$$$$$$$$$ooo");
+            Console.WriteLine("                          o$$$$$$$$$$$$$$$$$\"$$$$$$$oo");
+            Console.WriteLine("                       o$$$$$$$$$$$$$$$$$$$  o $$$$$$$$$$$$$$oooo");
+            Console.WriteLine("                      o$$$$\"\"\"$$$$$$$$$$$$$oooo$$$$$$$$$$$$$\"\"\"");
+            Console.WriteLine("                    oo$\"\"      \"$$$$$$$$$$$$$$$$$$$$$$$$\"");
+            Console.WriteLine("                   o$$          $$$$$$$$$$$$$$$$$$$$$$\"");
+            Console.WriteLine("                  o$$            $$$$$$$$$$$$$$$$$$$$");
+            Console.WriteLine("                o$$$$             $$$$$$$$$$$$$$$$$\"");
+            Console.WriteLine("               o$$$$$$oooooooo \"                $\"");
+            Console.WriteLine("              $$$$$$$$$$$$$$\"                    $");
+            Console.WriteLine("             $$$$$$$$$$$$$$                        o");
+            Console.WriteLine("            o$$$$$$$$$$$$$                         o");
+            Console.WriteLine("           o$$$$$$$$$$$$$                           o");
+            Console.WriteLine("          o$$$$$$$$$$$$$$                            \"o");
+            Console.WriteLine("         o$$$$$$$$$$$$$$$                             \"o");
+            Console.WriteLine("        o$$$$$$$$$$$$$$$$                              $");
+            Console.WriteLine("       o$$$$$$$$$$$$$$$$\"                              \"");
+            Console.WriteLine("       $$$$$$$$$$$$$$$$$                                $");
+            Console.WriteLine("      o$$$$$$$$$$$$$$$$$                                $");
+            Console.WriteLine("      $$$$$$$$$$$$$$$$$                                 $");
+            Console.WriteLine("     $$$$$$$$$$$$$$$$$$                                 \"");
+            Console.WriteLine("     $$$$$$$$$$$$$$$$$                                   $");
+            Console.WriteLine("    $$$$$$$$$$$$$$$$$                                    $");
+            Console.WriteLine("    $$$$$$$$$$$$$$$$\"                                    $$");
+            Console.WriteLine("   $$$$$$$$$$$$$$$$$                                      $o");
+            Console.WriteLine("   $$$$$$$$$$$$$$$$$                                      $$");
+            Console.WriteLine("  $$$$$$$$$$$$$$$$$$                                       $");
+            Console.WriteLine("  $$$$$$$$$$$$$$$$$$o                                      $$");
+            Console.WriteLine(" $$$$$$$$$$$$$$$$$$$$o                                     $$");
+            Console.WriteLine(" $$$$$$$$$$$$$$$$$$$$$$o                                   \"$");
+            Console.WriteLine(" $$$$$$$$$$$$$$$$$$$$$$$$o                                  $");
+            Console.WriteLine("$$$$$$$$$$$$$$$$$$$$$$$$$$$                                 $$");
+            Console.WriteLine("$$$$$$$$$$$$$$$$$$$$$$$$$$$$                                $$");
+            Console.WriteLine("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$                               $$");
+            Console.WriteLine("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$o                              $$");
+            Console.WriteLine("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$o                             $$");
+            Console.WriteLine("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$                             $$");
+            Console.WriteLine("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$                             $\"");
+            Console.WriteLine("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$                            $$");
+            Console.WriteLine("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$                            $\"");
+            Console.WriteLine("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$                            $");
+            Console.WriteLine(" $$$$$$$$$$$$$$$$$$$$$$$$$$$$$                            o$");
+            Console.WriteLine(" $$$$$$$$$$$$$$$$$$$$$$$$$$$$$                            $\"");
+            Console.WriteLine(" $$$$$$$$$$$$$$$$$$$$$$$$$$$$\"                            $");
+            Console.WriteLine(" $$$$$$$$$$$$$$$$$$$$$$$$$$$\"                             $");
+            Console.WriteLine("  $$$$$$$$$$$$$$$$$$$$$$$$$\"                             $$");
+            Console.WriteLine("  $$$$$$$$$$$$$$$$$$$$$$$$\"                              $$");
+            Console.WriteLine("  $$$$$$$$$$$$$$$$$$$$$$$                                $$");
+            Console.WriteLine("   $$$$$$$$$$$$$$$$$$$$$                                o$$");
+            Console.WriteLine("   $$$$$$$$$$$$$$$$$$$$                                 $$\"");
+            Console.WriteLine("   \"$$$$$$$$$$$$$$$$$$                                  $$");
+            Console.WriteLine("    $$$$$$$$$$$$$$$$$                                  o$$");
+            Console.WriteLine("    \"$$$$$$$$$$$$$$$\"                                  $$");
+            Console.WriteLine("     $$$$$$$$$$$$$$$                                   $$");
+            Console.WriteLine("     \"$$$$$$$$$$$$$\"                                  o$");
+            Console.WriteLine("      $$$$$$$$$$$$\"                                   $$");
+            Console.WriteLine("      $$$$$$$$$$$\"                                    $$");
+            Console.WriteLine("       $$$$$$$$$\"                                    $$\"");
+            Console.WriteLine("       $$$$$$$$$                                     $$");
+            Console.WriteLine("       \"$$$$$$$\"                                    $$");
+            Console.WriteLine("        $$$$$$$o                                    $\"");
+            Console.WriteLine("       o$$$$$$$$                                   $$");
+            Console.WriteLine("       $$$$$$$$$                                   $$");
+            Console.WriteLine("      o$$$$$$$$$                                   $\"");
+            Console.WriteLine("      $$$$$$$$$$                                  $$");
+            Console.WriteLine("      \"$$$$$$$$$                                o$\"\"");
+            Console.WriteLine("       \"$$$$$$$$                          ooooo$$oo");
+            Console.WriteLine("          \"\"$$$$$o                oooo$$$$$$$$$$$$$$ooo");
+            Console.WriteLine("             \"$$$$$$ooooooo\"\"\"\"\"\"\"\"\"$$$\"\"\"\"$$o   \"\"");
+            Console.WriteLine("                                                  \"");
+
+            if (!File.Exists(filterfile))
             {
                 File.WriteAllText(filterfile, "");
 
