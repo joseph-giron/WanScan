@@ -15,8 +15,8 @@ namespace WanThingConsole
         static bool debug = false;
         public static string outfile;
         static StringComparison comp = StringComparison.OrdinalIgnoreCase;
-        public static string filterfile = "latest_filters.txt";
-        public static string hostsfile = "latest_hosts.txt";
+        public static string filterfile = "latestfilters.txt";
+        public static string hostsfile = "latesthosts.txt";
         static void Main(string[] args)
         {
            if(!File.Exists(filterfile))
@@ -73,7 +73,7 @@ namespace WanThingConsole
                 }
                 if (tstcounter == 3)
                 {
-                    password = "password1";
+                    password = "admin123";
                 }
                 string encoded = System.Convert.ToBase64String(System.Text.Encoding.GetEncoding("ISO-8859-1").GetBytes(username + ":" + password));
                 request.Headers.Add("Authorization", "Basic " + encoded);
@@ -166,9 +166,6 @@ namespace WanThingConsole
 
         private static void DoStuff()
         {
-            ThreadStart childref = new ThreadStart(DoStuff);
-            Thread childthread = new Thread(childref);
-            childthread.Start();
 
             string[] lines = File.ReadAllLines(hostsfile);
             int x = 1;

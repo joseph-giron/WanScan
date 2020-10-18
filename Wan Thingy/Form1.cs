@@ -82,7 +82,7 @@ namespace Wan_Thingy
                 }
                 if (tstcounter == 3)
                 {
-                    password = "password1";
+                    password = "admin123";
                 }
                 string encoded = System.Convert.ToBase64String(System.Text.Encoding.GetEncoding("ISO-8859-1").GetBytes(username + ":" + password));
                 request.Headers.Add("Authorization", "Basic " + encoded);
