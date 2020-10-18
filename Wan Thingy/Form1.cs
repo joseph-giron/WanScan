@@ -5,7 +5,7 @@ using System.Net;
 using System.IO;
 using System.Xml;
 using System.Runtime.InteropServices;
-
+using System.Net.Http;
 
 namespace Wan_Thingy
 {
@@ -140,8 +140,7 @@ namespace Wan_Thingy
                     Char[] fuk = new char[4096]; // fuck yes, speed shit up by only reading the first 4 kb
                     kek.Read(fuk, 0, fuk.Length);
                     string s = new string(fuk);
-                    return s;
-                    //return kek.ReadToEnd();
+                    return s.Trim('\0'); // now it stops with the extra null byte shit. Keeps output smaller. 
                 }
             }
             catch (Exception ex)

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.IO;
 using System.Net;
 using System.Threading;
-
+using System.Diagnostics.Contracts;
 
 namespace WanThingConsole
 {
@@ -35,6 +35,8 @@ namespace WanThingConsole
                 Console.WriteLine("Error! I need 1 param! {0} output_file", args[0]);
                 return;
             }
+            if (args[1].ToString() == "skip")
+                debug = true;
             DoStuff();
             
 
@@ -128,11 +130,10 @@ namespace WanThingConsole
 
                 using (StreamReader kek = new StreamReader(stream))
                 {
-                    Char[] fuk  = new char[4096]; // fuck yes, speed shit up by only reading the first 4 kb
+                    Char[] fuk = new char[4096]; // fuck yes, speed shit up by only reading the first 4 kb
                     kek.Read(fuk, 0, fuk.Length);
                     string s = new string(fuk);
-                    return s;
-                    //return kek.ReadToEnd();
+                    return s.Trim('\0'); // now it stops with the extra null byte shit. Keeps output smaller. 
                 }
             }
             catch (Exception ex)

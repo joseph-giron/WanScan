@@ -1,0 +1,414 @@
+========================= http://114.183.37.85:80 =======================================
+
+
+================================================================
+
+ 
+got an error accessing http://114.183.37.85:80
+The operation has timed out
+
+
+
+
+==================================END==============================
+
+
+========================= http://58.94.108.89:80 =======================================
+
+
+================================================================
+
+ 
+<html><head><meta http-equiv="Pragma" content="no-cache"><meta http-equiv="expires" content="0"><script>
+if(location.hostname.indexOf(':') == -1){location.href='http://'+location.hostname+':'+8080+'/';
+}else{location.href='http://['+location.hostname+']:'+8080+'/';}
+</script></head></html>
+
+
+
+
+==================================END==============================
+
+
+========================= http://114.184.27.234:80 =======================================
+
+
+================================================================
+
+ 
+got an error accessing http://114.184.27.234:80
+The operation has timed out
+
+
+
+
+==================================END==============================
+
+
+========================= http://58.94.48.196:80 =======================================
+
+
+================================================================
+
+ 
+Filtered some BS out...
+
+
+
+
+
+==================================END==============================
+
+
+========================= http://114.183.90.28:80 =======================================
+
+
+================================================================
+
+ 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+<meta http-equiv="expires" content="0">
+<script type='text/javascript'>
+	location.href = 'http://114.183.90.28:8080/';
+</script>
+	</head>
+</html>
+
+
+
+
+==================================END==============================
+
+
+========================= http://60.43.63.116:80 =======================================
+
+
+================================================================
+
+ 
+<META HTTP-EQUIV="Refresh" CONTENT="0;URL=http://www.plala.or.jp/index.html">
+<TITLE>Plala Home Page(index)</TITLE>
+<BODY BGCOLOR="#FFFFFF">
+
+
+
+
+==================================END==============================
+
+
+========================= http://114.183.181.138:80 =======================================
+
+
+================================================================
+
+ 
+got an error accessing http://114.183.181.138:80
+The operation has timed out
+
+
+
+
+==================================END==============================
+
+
+========================= http://58.93.131.109:80 =======================================
+
+
+================================================================
+
+ 
+<html>
+<!-- Copyright (c) NEC AccessTechnica, Ltd. 2013 and Realtek Semiconductor Corp. 2003. All Rights Reserved. -->
+<head>
+<meta http-equiv="Content-Type" content="text/html">
+<meta http-equiv="Pragma" content="no-cache">
+<meta HTTP-equiv="Cache-Control" content="no-cache">
+<meta HTTP-EQUIV="Expires" CONTENT="Mon, 01 Jan 1990 00:00:01 GMT">
+<meta http-equiv="refresh" content="0; url=index.htm">
+<!--WNC-NMR0352-Rita-20130325-correct Product Name:AtermWF800HP-->
+<title>NEC AccessTechnica, Ltd. | AtermWF800HP </title>
+</head>
+</html>
+
+
+
+
+==================================END==============================
+
+
+========================= http://60.34.46.149:80 =======================================
+
+
+================================================================
+
+ 
+Filtered some BS out...
+
+
+
+
+
+==================================END==============================
+
+
+========================= http://114.180.236.75:80 =======================================
+
+
+================================================================
+
+ 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+<meta http-equiv="expires" content="0">
+<script type='text/javascript'>
+	location.href = 'http://114.180.236.75:8080/';
+</script>
+	</head>
+</html>
+
+
+
+
+==================================END==============================
+
+
+========================= http://60.41.177.229:80 =======================================
+
+
+================================================================
+
+ 
+got an error accessing http://60.41.177.229:80
+Unable to connect to the remote server
+
+
+
+
+==================================END==============================
+
+
+========================= http://114.186.94.82:80 =======================================
+
+
+================================================================
+
+ 
+got an error accessing http://114.186.94.82:80
+The operation has timed out
+
+
+
+
+==================================END==============================
+
+
+========================= http://60.47.194.244:80 =======================================
+
+
+================================================================
+
+ 
+Filtered some BS out...
+
+
+
+
+
+==================================END==============================
+
+
+========================= http://60.41.165.68:80 =======================================
+
+
+================================================================
+
+ 
+Filtered some BS out...
+
+
+
+
+
+==================================END==============================
+
+
+========================= http://60.35.134.210:80 =======================================
+
+
+================================================================
+
+ 
+Filtered some BS out...
+
+
+
+
+
+==================================END==============================
+
+
+========================= http://58.93.223.147:80 =======================================
+
+
+================================================================
+
+ 
+got an error accessing http://58.93.223.147:80
+The operation has timed out
+
+
+
+
+==================================END==============================
+
+
+========================= http://58.95.58.176:80 =======================================
+
+
+================================================================
+
+ 
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+	<meta name="robots" content="noindex,nofollow">
+	<title>�����������郉�C�u�J���� �@>�@ ���O�C��</title>
+	<script type="text/javascript">
+	<!--
+//		document.write(navigator.userAgent);
+		if ( (navigator.userAgent.indexOf('iPhone')  != -1) ||
+		     (navigator.userAgent.indexOf('iPod') != -1) ||
+		     (navigator.userAgent.indexOf('iPad') != -1) ||
+		     (navigator.userAgent.indexOf('Windows Phone') != -1) ||
+		     (navigator.userAgent.indexOf('Android') != -1)
+		   ){
+			location.href="/mobile/index.html";
+		}else if ( (navigator.userAgent.indexOf('DoCoMo')  != -1)  ||
+		     (navigator.userAgent.indexOf('KDDI') != -1)     ||
+		     (navigator.userAgent.indexOf('Vodafone') != -1) ||
+		     (navigator.userAgent.indexOf('SoftBank') != -1) 
+		   ){
+			location.href="/keitai/index.html";
+		} else {
+			location.href="/setup_login.html";
+		}
+	-->
+	</script>
+</head>
+<body>
+	<div align="center">
+		<font size="+2">
+			�����������郉�C�u�J����<br><br>
+		</font>
+		���g�p�̋@��ɉ����āA�ŏ��̃y�[�W��I����Ă�������<br><br><br>
+		<a href="/setup_login.html">
+			�p�\�R��
+		</a><br><br>
+		<a href="/mobile/index.html">
+			�X�}�[�g�t�H��(Andorid/iPhone)
+		</a><br><br>
+		<a href="/keitai/index.html">
+			�g�ѓd�b
+		</a><br><br><br>
+		<a>
+			�����̃y�[�W�͂��g�p�̃u���E�U�[��javascript�����p�ł��Ȃ����Ajavascript�����
+
+
+
+==================================END==============================
+
+
+========================= http://114.182.60.228:80 =======================================
+
+
+================================================================
+
+ 
+got an error accessing http://114.182.60.228:80
+The remote server returned an error: (401) Unauthorized.
+
+
+
+
+==================================END==============================
+
+
+========================= http://60.35.11.167:80 =======================================
+
+
+================================================================
+
+ 
+<!DOCTYPE html>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<html>
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="CACHE-CONTROL" content="NO-CACHE">
+<meta http-equiv="Expires" content="-1">
+<link rel="stylesheet" type="text/css" href="css/index.css" />
+<script src="./common/Jq/jquery-1.6.2.min.js"></script>
+<script lang="JavaScript" src="common/Lang_en.js"></script>
+<script lang="JavaScript" src="common/ParseLang.js"></script>
+<style>
+    DIV {
+        cursor: default;
+    }
+</style>
+<title>AHD DVR</title>
+<script language="JavaScript"> 
+<!--
+    function c_log(str){
+        try{
+            console.log(str);
+        }
+        catch(e){
+		
+        }
+    }
+    var psL = new ParseLang(jsnLang);
+    var is_ie = false;
+    var is_chrome = false;
+    var is_firefox = false;
+    var is_safari = false;
+    var is_ie11= false;
+    var brandID = 0;//M
+    var VLC_Version;
+	var g_jarobj; // applet object
+    //var check_chrome_status;
+    $(document).bind("contextmenu",function(event){return false;});
+    function chk_browser() {
+        //alert(psL._('AST_NOT_SUPPORT_BROWSER' , get_cke()));
+        //var b_obj = $.browser;
+        $.browser.chrome = /chrome/.test(navigator.userAgent.toLowerCase());
+
+        if ($.browser.msie == true && ($.browser.version == 8 || $.browser.version == 9 || $.browser.version == 10)) {
+            is_ie = true;
+        }
+        else if (navigator.appName == 'Netscape' && !!navigator.userAgent.match(/Trident.*rv:11\./) == true) {
+            is_ie11 = true;
+            $('#divJava').html('<applet id="JTest_Html" width="0" height="0" code="netbinary.cgiBinaryPost.class" archive = "webApplet.jar" codebase="common/Jar/">\nYou have to install JAVA Runtime to execute JAVA Applet.</applet>\n');
+            g_jarobj = document.getElementById("JTest_Html");
+        }
+        else if ($.browser.chrome == true) {
+            is_chrome = true;
+            $.browser.safari = false;
+            $.browser.webkit = false;
+            $('#divJava').html('<applet id="JTest_Html" width="0" height="0" code="netbinary.cgiBinaryPost.class" archive = "webApplet.jar" codebase="common/Jar/">\nYou have to install JAVA Runtime to execute JAVA Applet.</applet>\n');
+            g_jarobj = document.getElementById("JTest_Html");
+            //alert(g_jarobj.isRunning());
+        }
+        else if ($.browser.mozilla == true) {
+            is_firefox = true;
+            $('#divJava').html('<applet id="JTest_Html" width="0" height="0" code="netbinary.cgiBinaryPost.class" archive = "webApplet.jar" codebase="common/Jar/">\nYou have to install JAVA Runtime to execute JAVA Applet.</applet>\n');
+            g_jarobj = docu
+
+
+
+==================================END==============================
+
+

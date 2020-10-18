@@ -4,3 +4,10 @@ G:\C Projects\Visual Studio\Projects\WanThingConsole\WanThingConsole\bin\Debug\W
 G:\C Projects\Visual Studio\Projects\WanThingConsole\WanThingConsole\obj\Debug\WanThingConsole.csprojResolveAssemblyReference.cache
 G:\C Projects\Visual Studio\Projects\WanThingConsole\WanThingConsole\obj\Debug\WanThingConsole.exe
 G:\C Projects\Visual Studio\Projects\WanThingConsole\WanThingConsole\obj\Debug\WanThingConsole.pdb
+A:\C Projects\Visual Studio\Projects\Wan Thingy\WanThingConsole\WanThingConsole\bin\Debug\WanThingConsole.exe.config
+A:\C Projects\Visual Studio\Projects\Wan Thingy\WanThingConsole\WanThingConsole\bin\Debug\WanThingConsole.exe
+A:\C Projects\Visual Studio\Projects\Wan Thingy\WanThingConsole\WanThingConsole\bin\Debug\WanThingConsole.pdb
+A:\C Projects\Visual Studio\Projects\Wan Thingy\WanThingConsole\WanThingConsole\obj\Debug\WanThingConsole.csprojAssemblyReference.cache
+A:\C Projects\Visual Studio\Projects\Wan Thingy\WanThingConsole\WanThingConsole\obj\Debug\WanThingConsole.csproj.CoreCompileInputs.cache
+A:\C Projects\Visual Studio\Projects\Wan Thingy\WanThingConsole\WanThingConsole\obj\Debug\WanThingConsole.exe
+A:\C Projects\Visual Studio\Projects\Wan Thingy\WanThingConsole\WanThingConsole\obj\Debug\WanThingConsole.pdb
