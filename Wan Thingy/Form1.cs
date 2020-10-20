@@ -6,6 +6,7 @@ using System.IO;
 using System.Xml;
 using System.Runtime.InteropServices;
 using System.Net.Http;
+using Freezer.Core;
 
 namespace Wan_Thingy
 {
@@ -48,6 +49,16 @@ namespace Wan_Thingy
             bg.RunWorkerAsync();
             return;
         }
+        public void screenie(string urlol)
+        {
+            var screenShotJob = ScreenshotJobBuilder.Create(urlol)
+               .SetCaptureZone(CaptureZone.FullPage)
+              .SetBrowserSize(600, 800)
+              .SetTrigger(new WindowLoadTrigger())
+              .SetTimeout(TimeSpan.FromSeconds(5D));
+            System.Uri uri = new System.Uri(urlol);
+            File.WriteAllBytes(uri.Host + ".png", screenShotJob.Freeze());
+        }
         public string Get(string uri)
         {
             string testexception = "The remote server returned an error: (401) Unauthorized.";
@@ -55,7 +66,10 @@ namespace Wan_Thingy
             if (cbDebug.Checked)
             {
                 tstcounter = 4;
+                if (cbScreenShots.Checked)
+                    screenie(uri);
             }
+
             
             string username = "admin";
             string password = "";
@@ -83,6 +97,8 @@ namespace Wan_Thingy
                 if (tstcounter == 3)
                 {
                     password = "admin123";
+                    if (cbScreenShots.Checked)
+                        screenie(uri);
                 }
                 string encoded = System.Convert.ToBase64String(System.Text.Encoding.GetEncoding("ISO-8859-1").GetBytes(username + ":" + password));
                 request.Headers.Add("Authorization", "Basic " + encoded);

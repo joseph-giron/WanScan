@@ -51,6 +51,7 @@
             this.btnLoadURLS = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.cbDebug = new System.Windows.Forms.CheckBox();
+            this.cbScreenShots = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -252,11 +253,22 @@
             this.cbDebug.Text = "Don\'t try passwords, just scan";
             this.cbDebug.UseVisualStyleBackColor = true;
             // 
+            // cbScreenShots
+            // 
+            this.cbScreenShots.AutoSize = true;
+            this.cbScreenShots.Location = new System.Drawing.Point(110, 412);
+            this.cbScreenShots.Name = "cbScreenShots";
+            this.cbScreenShots.Size = new System.Drawing.Size(120, 17);
+            this.cbScreenShots.TabIndex = 16;
+            this.cbScreenShots.Text = "Output Screenshots";
+            this.cbScreenShots.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(524, 441);
+            this.Controls.Add(this.cbScreenShots);
             this.Controls.Add(this.cbDebug);
             this.Controls.Add(this.btnLoadFilters);
             this.Controls.Add(this.btnClearFilter);
@@ -312,6 +324,7 @@
         private System.Windows.Forms.Button btnLoadURLS;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.CheckBox cbDebug;
+        private System.Windows.Forms.CheckBox cbScreenShots;
     }
 }
 
