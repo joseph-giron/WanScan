@@ -109,7 +109,8 @@ namespace WanThingConsole
                 Console.WriteLine("Error! I need 1 param! {0} output_file", args[0]);
                 return;
             }
-            if (args[1].ToString() == "skip")
+            
+            if (args.Length >=2 && args[1].Equals("skip"))
                 debug = true;
             DoStuff();
             
