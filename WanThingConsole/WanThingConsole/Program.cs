@@ -7,7 +7,7 @@ using System.IO;
 using System.Net;
 using System.Threading;
 using System.Diagnostics.Contracts;
-
+using System.Reflection.Emit;
 
 namespace WanThingConsole
 {
@@ -229,14 +229,34 @@ namespace WanThingConsole
 
         public static string handleit(string cock)
         {
-            string contents = File.ReadAllText(filterfile);
+            //string contents = File.ReadAllText(filterfile);
+            //
+            //    if (cock.Contains(contents, comp))
+            //          if(contents.Contains(cock,comp))
+            //            {
+            //               return "Filtered some BS out...\r\n\r\n";
+            //          }
+
+
+            //    return cock;
+
+
+            // for (int y = 0; y < tbExcludeList.Lines.Length; y++)
+
+            String[] lines = File.ReadAllLines(filterfile);
+            for (int y = 0; y < lines.Length; y++)
+            {
+                
+                string contents = lines[y];
                 if (cock.Contains(contents, comp))
                 {
                     return "Filtered some BS out...\r\n\r\n";
                 }
-            
-            
+            }
             return cock;
+
+
+
 
         }
 

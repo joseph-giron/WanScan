@@ -1,1 +1,385 @@
-apache
+siteID = document.getElementById('textID').value;
+var lt = "?WebVersion=@WebVersion@"
+<title>RADIX - Alrit</title>
+Sonic Wall
+<form action="/cgi-bin/login.exe" method="post" name="tF"
+<meta HTTP-EQUIV="refresh" CONTENT="0;URL=/cgi-bin/cgi?req=twz">
+/Main_Login.asp?error_status=1&page=index.asp&
+Welcome to Synology Web Station
+<title>Web Viewer for DVR</title>
+<title>Wisenet NVR</title>
+<title>Web Client Pro</title>
+redirect_suffix = "/redirect.html?count="+Math.random();
+<title>Web Viewer for Samsung DVR</title>
+<title>Web Viewer for Hanwha DVR</title>
+<title>SAMSUNG TECHWIN NVR Web Viewer</title>
+window.location = './svc/mviewer.html';
+<title>BUFFALO SmartWeb Switch</title>
+<title>DVR ActiveX Viewer</title>
+view_page = 'cnc2.html'
+<TITLE>DVR_H264 ActiveX</TITLE>
+location.href = "/cgi-bin/login.cgi";
+location.replace("./live/index2.html?Language=1")
+<title>EAP 6</title>
+<body class="login wispro">
+Zimbra Collaboration
+<title>Alfresco</title>
+window.location.href = "/doc/page/login.asp?_" + (new Date()).getTime();
+<title>Web Filter Block Override</title>
+<title>1.1.1.1 — The free app that makes your
+Welcome to WildFly
+function MD5(str) { return hex_md5(str); }
+Nextcloud
+Owncloud
+<title>RouterOS router
+var ProductName = 'HG8245H';
+src="/javascripts/api/tableau
+<title>Cyberoam</title>
+<title>Welcome to JBoss
+<title>Welcome to XAMPP</title>
+<script language=javascript src="libs/MulPlatAPI.js"></script>
+<title>HG658 V2 Home Gateway HG658 V2</title>
+<body class="login wispro">
+var nLanguageSupported = WnmGetLanguageSupported ();
+var SSLHostIp 
+self.location.href='/csl/login'
+<link href="bitnami.css"
+var thirdmenu = 'Admin_0_0_0';
+<frame src="./left.asp" name="leftFrame" scrolling="NO" noresize>
+NAS_CUSTOM_INFO
+top.location="/remote/login";
+href="cicero/">
+<title>DISH - smartbox</title>
+action="/login.tgi"
+<TITLE>Powercode BMU</TITLE>
+<title>CloudKey</title>
+src="js/jqm.js?_=
+(!(/^http/i).test(baseTag.href))
+wp-content
+content="0;url=/e">
+ownCloud
+vkbd/1-vkboard/vkboard.js
+<title>MDaemon Webmail
+url=/eunityServer
+Outlook Mail Web Page
+SimpleHelp Remote Support
+URL=/scgi-bin/index.htm
+tryGuestLoginAndContinueToPopulatePage()
+url=/cgi-bin/acs.fcgi
+/_RLib_3_Basic.js
+Ziply Captive Portal
+<legend>Administrator login</legend>
+content="0; URL=/cgi-bin/welcome"
+Sophos
+<div ng-if="!expectedCredentials">
+Barracuda Login Page
+"doc/page/home_basic.asp?"
+<title>Cisco ASDM
+Mitel Communications
+Mitel 5000 Communications Platform
+<title>MailGate
+URL=/cgi-bin/welcome
+<title>Polycom Login</title>
+<title>Plesk
+NAME="ATEN International Co Ltd."
+BUFFALO Inc. All rights reserved.
+<title>UniFi
+function GetRecordPathCallBack(data){}
+<!-- Link to this custom portal's portal.css -->
+<title>Barracuda Networks</title>
+<title>Frontier Modem Configuration</title>
+Frontier Homepage Powered by Yahoo
+<script src="/dana-na/
+duosecurity
+<span id="Label1">Invalid URL
+<script src="js/classwy.js" type="text/javascript"></script>
+<title>Building Operation WebStation</title>
+URL=/scgi-bin/platform.cgi
+URL=/scgi-bin/index.htm
+Moodle
+Reolink</title>
+<title>Frontier VM</title>
+<title>Citrix Gateway</title>
+Citrix Systems
+TLS-450 Web Interface
+<title>Citrix Login</title>
+<title>VMware
+id="passwordRqd">&nbsp;</div>
+Roundcube
+if(self.name.search("contentFrame")!=-1)
+Remote Web Workplace
+<link href="tswa.css"
+<TITLE>Microsoft Outlook Web Access</TITLE>
+<title>Frontier Router</title>
+Start a_common.ssi
+<meta http-equiv="refresh" content="0; url=/redirect.html"></meta>
+Configuration?callback=UpdateSettings
+<title>Web Filter Block Override</title>
+"EeaMYvDkiR"
+"http://www.hp.com/networking/"
+<style id="antiClickjack"
+js/websocket_service_manager.js?ver=
+<!-- d3 changed significantly
+/ricoStyles.js">
+Symantec Messaging Gateway
+URL=/spog/welcome
+Ubiquiti Networks
+DPLUS Dashboard
+("/owa/" + window.location.hash)
+VMware Converter
+<title>OctoPrint Login</title>
+DvrWebVideo.cab
+https://www.frontierwifi.com
+Your internet access has been restricted!
+<title>MyCyberLink.net</title>
+URL=/server-manager/"
+src="../template/WebClient.js">
+<!--- Page(9073)=[Login] --->
+<title>Intelligent Digital Security System</title>
+alt="VMware Horizon">
+function setWirelessTable() {
+American Megatrends Inc.
+MiVoice Office Communications Platform
+var match = rSafari.exec(ua); 
+'javascript'>parent.location="/login.htm"
+BIG-IP logout page
+Frontier Captive Portal
+<title>Gigaset
+Frontier Internet Speed Test Tool
+#hintbox{ /*CSS for pop up hint box */
+return { browser : match[2] || "", version : match[1] || "0" };
+window.location = 'VeraSMART/Default.aspx'
+window.location="/global-protect/login.esp";
+supported by Tracer SC.
+Powered by BOMGAR
+Gui.NewJApplet.class
+Lua Configuration Interface
+var sTargetURL = "secure/ltx_conf.htm";
+"/old/index.htm?mxy="+Math.random();
+"/_common/servlet/wap/login?null"
+<title>DVR IE Video
+src="/app/jsCore/require-config.js"
+"doc/en/login.asp";
+MapPress Easy Google Maps
+Barracuda Phone System
+ZyXEL ZyWALL
+<title>GKG.NET
+cloud CSISD
+<a id="HelpLink" href="http://go.microsoft.com/fwlink/
+window.location = '/cgi-bin/manage/login.cgi'
+<title>mikrotik routeros
+src="images/oem/zultys/logo.gif"
+cookie_name = "kouling";
+FDSH_DVR.CAB
+Pulse Connect Secure
+Check Point SSL Network
+location.href='sc_plugin.exe';
+Barracuda SSL VPN
+setup_tigon_1648.exe
+<title>Spiceworks
+setInterval(startSNVRWeb,1000);
+https://admin.tengointernet.com
+NetActiveX.exe
+href="allworx.ico
+VMware Horizon View
+<TITLE>ZyXEL
+codebase="DVRClient.exe"
+<img src="iisstart.png"
+Default Page: It works
+<title>Vivotek
+src="/themes/dominion/images/
+"\/JournalBrowser"
+#GoogleDoodle"
+kerio.engine.constants
+Web Client for DVR
+<img src='/login/keys.png'></td>
+WISPAccessGatewayParam
+HCMSActiveX.cab
+Dell Remote Web Access
+SmarterMail
+Grandstream Device Configuration
+function checkIPv6(v)
+"/Remote/Javascript/ramjsfx.menu.css"
+"images/meraki-logo.png"
+<title>IIS Windows</title>
+/doc/page/login.asp?_
+doc/script/LAB.min.js
+Web Viewer for Samsung DVR
+jumpURL.substr(0,6).toLowerCase();
+handlerOcxEvents.InsertNetRecordFileInfo
+RouterOS router configuration page
+DVR Components Download
+var LANGS="eng chn cht de es it fr pt";
+IIS Windows Server
+content-mgmt/add-ins/shared/midsession.adp
+Linksys Smart Wi-Fi Router
+loadingIndicator_bk
+Check Point Mobile
+<!-- InstanceBeginEditable name="doctitle" -->
+URL=/webpages/login.html
+<title>EdgeOS</title>
+var filter = "win16|win32|win64|mac|macintel";
+src="jsBase/lib/md5.js"
+window.location = "/UI";
+logoNetGear space50Percent topAlign
+images/cisco-meraki.png
+RSVideoOcx.cab
+brand/watchmegrow/watchmegrow.css
+window.location.href = "Pages/login.htm"
+VMware ESXi
+googleg_standard_color_128dp.png
+Vigor Login Page
+<title>macOS Server</title>
+TP-LINK Archer C5
+src="jsCore/base64.js"
+Ruckus Wireless Admin
+"/servlet?p=login&q=loginForm&jumpto=status";
+<TITLE>Web Application Manager</TITLE>
+url ='/webui';window.location.href=url
+Log In - Lightspeed Rocket
+Speco library plugin
+Apache2 Ubuntu Default Page: It works
+location.replace('login.web
+CMS Web Viewer</title>
+function IsPluginInstalled(ext){
+<meta name="description" content="DiskStation
+Speedtest.net Mini Bandwidth
+CsrfMagic.end();
+Welcome to Aruba Instant
+EDVR.CAB
+CyberTAN Corporation
+DVR Components Download
+URL=/cgi-sys/defaultwebpage.cgi
+setTaggedSessionInfo(tag,
+Vigor Login Page
+at register.gkg.net
+/kubrick/styling.css
+Text.VideoManageSystem
+Follett Software Account
+Synology Web Station
+webStartJnlpDownloadMsg
+ATX UCrypt Configuration
+DvrLiveViewer.jar
+<title>Wisenet NVR
+jumpURL.substr(0,6).toLowerCase()
+"NPClient.html" + parame;
+class="vega signin-body">
+<img src="/owa/
+NUUO Network Video Recorder
+/redirect.html?count="+Math.random();
+"/stylesheet/juniper.css"
+<title>Web Client Pro
+<title>WebPro
+align="right">Connect Mode
+Parallels IP Holdings
+Parallels H-Sphere
+NETSurveillance WEB
+<title>Login cgicc form
+Check Point Software Technologies
+<title>Login - Time Clock
+<TITLE>Comrex ACCESS Rack
+MiVoice Business
+Windows Server 2012 Essentials
+href="http://www.freepbx.org
+Unable to display RD Web Access
+Windows Small Business Server 2011 Essentials
+Belkin International, Inc.
+document.f.pwd.value+document.f.pwd_r.value;
+<title>Windows CE
+images/TiVo-ant.gif
+<title>ZyWALL
+codebase="dvr_ocx.cab
+var product_name="cnPilot
+span>Star Intelligent
+event="NotifyResultToJs(strXMLFormat
+<title>Account Suspended
+<frame name="vars" src="vars.htm"
+KACE Systems Management
+Ubiquiti EdgeSwitch
+<title>IIS7
+var url = "m/m/index.html";
+Copyright 2012 Ubiquiti Networks
+<frame src="hiden.html">
+<title>ProTRAX
+doc/page/login.asp
+"/+CSCOE+/logon.html"
+<script>document.location.replace('/+CSCOE+/logon.html
+type='hidden' id='cookiePostfix'
+http://www.tp-link.com
+<title>Netscaler Gateway
+<title>Smartvue S9
+document.execCommand('BackgroundImageCache
+CODEBASE='WebCamX.cab
+Test Page for the Nginx
+Welcome to nginx!
+src="login/loginN4.js
+"welcome.png" alt="IIS7"
+HREF="/awc/">AWC User Portal
+head1>To access IIS Help
+"/remote">Remote Web Workplace
+URL=cgi-bin/MANGA/index.cgi"
+SAMSUNG TECHWIN NVR Web Viewer
+www.securecomputing.com
+Bosch Security Systems
+speco_control.cab
+Welcome to SimpleHelp
+SuperClient.cab
+"images/observium-icon.png"
+Welcome to DVR Live View
+<a href="/owa">
+window.open("/_common/lvl5/dologin.jsp"
+sc_control.cab
+<title>BIG-IP
+Zimbra Collaboration
+included as part of XSS fixes.
+href="http://www.procurve.com/"
+<title>Fireware XTM User Authentication</title>
+<title>Vidyo Admin</title>
+<!-- Start a_common.ssi -->
+microcam_control.cab
+ActiveXObject("CNC_Ctrl.UMS.1");
+<title>AKC Client Check</title>
+var IsExist = Get_Cookie("OCX");
+URL=/cgi-bin/router"
+XenMobile - Console
+location.href='/unauth.cgi';
+value="AccessContainer.swf"
+url=/operator/audio_settings.shtml
+URL=/view/viewer_index.shtml
+OwaPage = ASP.auth_logon_aspx
+Default Parallels Plesk Panel Page
+nikola_main2.html
+CONTENT="0; URL=/cgi-mod/index.cgi"
+<TITLE> DVR Web </TITLE>
+LoadGetString("IDS_WEB_LOGIN");
+<title>TurnKey LAMP
+Synology
+var _PROJECT_MODEL_ID_LIGHTNING
+<HTML><HEAD><script>top.location.href='/Main_Login.asp';</script>
+href="/themes/connectedss/all.css"
+setTimeout("goJump();", 1000);
+<title>Allworx
+Star Micronics co.
+window.navigate("/WCC2/");
+4>Click <b>Internet Information Services
+URL=/cgi-bin/welcome.cgi"
+w3webviewer.cab
+location.href = "PcamEn.htm";
+.setItem('TranWareMessage',
+Remote Support by BOMGAR
+Green library plugin
+<frame src="/hiden.html">
+Cookie Check - TimeIPS
+Microsoft Internet Information Services
+https://staging.connectwisedev.com
+<TITLE>Network Surveillance
+location.href="/cgi-bin/main_manage.cgi";
+WebClientPlayBack.ocx
+<title>DVS Lite Viewer
+DvrOcx.cab
+Polycom Web Configuration Utility
+<title>FileMaker Website
+"?WebVersion=@WebVersion@";
+SpecoTech-WebViewer.cab
+/css/calix_ie_8_min.css
+<title>DD-WRT

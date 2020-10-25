@@ -1,0 +1,421 @@
+========================= http://119.10.222.123:80 =======================================
+
+
+================================================================
+
+ 
+Filtered some BS out...
+
+
+
+
+
+==================================END==============================
+
+
+========================= http://125.30.75.122:80 =======================================
+
+
+================================================================
+
+ 
+got an error accessing http://125.30.75.122:80
+The operation has timed out
+
+
+
+
+==================================END==============================
+
+
+========================= http://124.41.65.9:80 =======================================
+
+
+================================================================
+
+ 
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="Content-Type" CONTENT="text/css; charset=Shift_JIS">
+	<META HTTP-EQUIV="Refresh" ConTENT="0; URL=/cgi-bin/login.php">
+</HEAD>
+
+</HTML>
+
+
+
+==================================END==============================
+
+
+========================= http://124.41.81.115:80 =======================================
+
+
+================================================================
+
+ 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+<meta http-equiv="expires" content="0">
+<script type='text/javascript'>
+	location.href = 'http://124.41.81.115:8080/';
+</script>
+	</head>
+</html>
+
+
+
+
+==================================END==============================
+
+
+========================= http://124.41.95.95:80 =======================================
+
+
+================================================================
+
+ 
+Filtered some BS out...
+
+
+
+
+
+==================================END==============================
+
+
+========================= http://118.151.143.179:80 =======================================
+
+
+================================================================
+
+ 
+got an error accessing http://118.151.143.179:80
+The remote server returned an error: (404) Not Found.
+
+
+
+
+==================================END==============================
+
+
+========================= http://118.151.134.46:80 =======================================
+
+
+================================================================
+
+ 
+got an error accessing http://118.151.134.46:80
+The remote server returned an error: (403) Forbidden.
+
+
+
+
+==================================END==============================
+
+
+========================= http://125.30.206.42:80 =======================================
+
+
+================================================================
+
+ 
+Filtered some BS out...
+
+
+
+
+
+==================================END==============================
+
+
+========================= http://121.102.62.97:80 =======================================
+
+
+================================================================
+
+ 
+Filtered some BS out...
+
+
+
+
+
+==================================END==============================
+
+
+========================= http://49.239.122.192:80 =======================================
+
+
+================================================================
+
+ 
+got an error accessing http://49.239.122.192:80
+The operation has timed out
+
+
+
+
+==================================END==============================
+
+
+========================= http://113.197.234.77:80 =======================================
+
+
+================================================================
+
+ 
+got an error accessing http://113.197.234.77:80
+The operation has timed out
+
+
+
+
+==================================END==============================
+
+
+========================= http://124.41.113.177:80 =======================================
+
+
+================================================================
+
+ 
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="Content-Type" CONTENT="text/css; charset=Shift_JIS">
+	<META HTTP-EQUIV="Refresh" ConTENT="0; URL=/cgi-bin/login.php">
+</HEAD>
+
+</HTML>
+
+
+
+==================================END==============================
+
+
+========================= http://58.138.55.96:80 =======================================
+
+
+================================================================
+
+ 
+got an error accessing http://58.138.55.96:80
+The server committed a protocol violation. Section=ResponseStatusLine
+
+
+
+
+==================================END==============================
+
+
+========================= http://101.128.205.119:80 =======================================
+
+
+================================================================
+
+ 
+got an error accessing http://101.128.205.119:80
+The operation has timed out
+
+
+
+
+==================================END==============================
+
+
+========================= http://113.197.179.215:80 =======================================
+
+
+================================================================
+
+ 
+Filtered some BS out...
+
+
+
+
+
+==================================END==============================
+
+
+========================= http://58.138.136.73:80 =======================================
+
+
+================================================================
+
+ 
+<br />
+<b>Warning</b>:  require(./hp/wp-blog-header.php) [<a href='function.require'>function.require</a>]: failed to open stream: No such file or directory in <b>/home/www/htdocs/tenki/index.php</b> on line <b>17</b><br />
+<br />
+<b>Fatal error</b>:  require() [<a href='function.require'>function.require</a>]: Failed opening required './hp/wp-blog-header.php' (include_path='.:/usr/local/php5.3.29/lib/php') in <b>/home/www/htdocs/tenki/index.php</b> on line <b>17</b><br />
+
+
+
+
+==================================END==============================
+
+
+========================= http://118.151.143.191:80 =======================================
+
+
+================================================================
+
+ 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="description" content="埼玉県さいたま市北区の鍵店、鍵の出張センターです。出張料金県内最安値/北区内全域へ出張可能/どんな鍵のトラブルにも対応/お問い合わせ電話番号・048-665-3115" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<link type="text/css" rel="stylesheet" href="css/sa_kitaku.css" />
+<link type="text/css" rel="stylesheet" href="css/rsa_kitaku.css" />
+<title>鍵 埼玉県さいたま市北区でお困りなら北区鍵の110番24時間</title>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+<script src="js/jquery.slicknav.min.js"></script>
+<link href="css/slicknav.css" rel="stylesheet" type="text/css" media="all" />
+<script>
+$(function(){
+
+     $('#menu').slicknav();
+
+});
+</script>
+</head>
+<body id="gfosbbnp">
+<div id="vnhedy">
+	<div class="cexptrfi">
+		<ul id="menu">
+			<li><a href="index.html">TOP</a></li>
+			<li><a href="bgudoo.html">サービス</a></li>
+			<li><a href="ykfejeg.html">製品</a></li>
+			<li><a href="asmoim.html">出張地域</a></li>
+			<li><a href="aket.html">料金表</a></li>
+			<li><a href="yfpw.html">会社概要</a></li>
+			<li><a href="azpmetyr.html">鍵屋の日記</a></li>
+			<li><a href="swwyhhek.html">お問合わせ</a></li>
+		</ul>
+		<p id="lhzliu"><a href="index.html">北区鍵の110番24時間</a></p>
+	</div>
+
+	<div id="izse" class="efeey">
+		<div id="waqggfdw">
+			<a href="index.html"><img src="image/saikita_logo.jpg" alt="北区鍵の110番24時間" /></a>
+			
+			<ul>
+				<li>
+					<a href="index.html">
+						<img src="image/saikita_m1on.gif" border="0" onMouseOver="this.src='image/saikita_m1on.gif'" onMouseOut="this.src='image/saikita_m1on.gif'" />
+					</a>
+				</li>
+				<li>
+					<a href="bgudoo.html">
+						<img src="image/saikita_m2.gif" border="0" onMouseOver="this.src='image/saikita_m2on.gif'" onMouseOut="this.src='image/saikita_m2.gif'" />
+					</a>
+				</li>
+				<li>
+					<a href="ykfejeg.html">
+						<img src="image/saikita_m3.gif" border="0" onMouseOver="this.src='image/saikita_m3on.gif'" onMouseOut="this.src='image/saikita_m3.gif'" />
+					</a>
+				</li>
+				<li>
+					<a href="asmoim.html">
+						<img src="image/saikita_m4.gif" border="0" onMouseOver="this.src='image/saikita_m4on.gif'" onMouseOut="this.src='image/saikita_m4.gif'" />
+					</a>
+				</li>
+				<li>
+					<a href="aket.html">
+						<img src="image/saikita_m5.gif" border="0" onMouseOver="this.src='image/saikita_m5on.gif'" onMouseOut="this.src='image/saikita_m5.gif'" />
+					</a>
+				</li>
+				<li>
+					<a href="yfpw.html">
+						<img src="image/saikita_m6.gif" border="0" onMouseOver="this.src='image/saikita_m6on.gif'" onMouseOut="this.src='image/saikita_m6.gif'" />
+					</a>
+				</li>
+				<li>
+					<a href="azpmetyr.html">
+						<img src="image/saikita_m7.gif" border="0" onMouseOver="this.src='image/saikita_m7on.gif'" onMouseOut="this.src='image/saikita_m7.gif'" />
+					</a>
+				</li>
+				<li>
+					<a href="swwyhhek.html">
+						<img src="image/saikita_m8.gif" border="0" onMouseOver="this.src='image/saikita_m8on.gif'" onMouseOut="this.src='image/saikita_m8.gif'" />
+					</a>
+				</li>
+			</ul>
+		</div>
+		
+		<img src="image/saikita_cre.gif" />
+		<img src="image/saikita_bana1.jpg" />
+		<img src="image/saikita_bana2.jpg" />
+	</div>
+
+	<div id="xgghq
+
+
+
+==================================END==============================
+
+
+========================= http://101.128.136.139:80 =======================================
+
+
+================================================================
+
+ 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+<meta http-equiv="expires" content="0">
+<script type='text/javascript'>
+	location.href = 'http://101.128.136.139:8080/';
+</script>
+	</head>
+</html>
+
+
+
+==================================END==============================
+
+
+========================= http://124.41.86.21:80 =======================================
+
+
+================================================================
+
+ 
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=EUC-JP">
+<title>JP�ɥᥤ�����Ϥ��ޤ�</title>
+<html>
+�ʲ�JP�ɥᥤ�����Ϥ��ޤ�<br>
+idol.jp<br>
+mizu.jp<br>
+bio.jp<br>
+animal.jp<br>
+privacy.jp<br>
+baby.jp<br>
+baseball.jp<br>
+voice.jp<br>
+oil.jp<br>
+pill.jp<br>
+manner.jp<br>
+train.jp<br>
+�䤤��碌�衧<br>
+Mail:domains@mediatips.co.jp<br>
+Tel:046-258-2503<br>
+<!--
+<a href="http://page7.auctions.yahoo.co.jp/jp/auction/g153104825">Yahoo�����������˽�����Ǥ���</a><br>
+-->
+</html>
+
+
+
+
+==================================END==============================
+
+

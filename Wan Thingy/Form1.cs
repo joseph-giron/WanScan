@@ -6,12 +6,16 @@ using System.IO;
 using System.Xml;
 using System.Runtime.InteropServices;
 using System.Net.Http;
-using Freezer.Core;
+using OpenQA.Selenium;
+using OpenQA.Selenium.Firefox;
+
+//using Freezer.Core;
 
 namespace Wan_Thingy
 {
     public partial class Form1 : Form
     {
+        
         public Form1()
         {
             InitializeComponent();
@@ -51,13 +55,28 @@ namespace Wan_Thingy
         }
         public void screenie(string urlol)
         {
-            var screenShotJob = ScreenshotJobBuilder.Create(urlol)
+            FirefoxOptions fe = new FirefoxOptions();
+            fe.AcceptInsecureCertificates = true;
+            IWebDriver driver = new FirefoxDriver(fe);
+            driver.Navigate().GoToUrl(urlol);
+            
+            
+            /*var screenShotJob = ScreenshotJobBuilder.Create(urlol)
                .SetCaptureZone(CaptureZone.FullPage)
               .SetBrowserSize(600, 800)
               .SetTrigger(new WindowLoadTrigger())
-              .SetTimeout(TimeSpan.FromSeconds(5D));
+              .SetTimeout(TimeSpan.FromSeconds(Convert.ToInt32(tbTimeOut.Text)));
             System.Uri uri = new System.Uri(urlol);
-            File.WriteAllBytes(uri.Host + ".png", screenShotJob.Freeze());
+            try
+            {
+                File.WriteAllBytes(uri.Host + ".png", screenShotJob.Freeze());
+                return;
+            }
+            catch(Exception)
+            {
+                return;
+            }
+            */
         }
         public string Get(string uri)
         {
