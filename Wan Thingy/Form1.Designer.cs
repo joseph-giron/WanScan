@@ -51,7 +51,7 @@
             this.btnLoadURLS = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.cbDebug = new System.Windows.Forms.CheckBox();
-            this.cbScreenShots = new System.Windows.Forms.CheckBox();
+            this.CbFilteredOutput = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -248,27 +248,28 @@
             this.cbDebug.AutoSize = true;
             this.cbDebug.Location = new System.Drawing.Point(312, 412);
             this.cbDebug.Name = "cbDebug";
-            this.cbDebug.Size = new System.Drawing.Size(166, 17);
+            this.cbDebug.Size = new System.Drawing.Size(174, 17);
             this.cbDebug.TabIndex = 15;
-            this.cbDebug.Text = "Don\'t try passwords, just scan";
+            this.cbDebug.Text = "Don\'t Try Passwords (just scan)";
             this.cbDebug.UseVisualStyleBackColor = true;
             // 
-            // cbScreenShots
+            // CbFilteredOutput
             // 
-            this.cbScreenShots.AutoSize = true;
-            this.cbScreenShots.Location = new System.Drawing.Point(110, 412);
-            this.cbScreenShots.Name = "cbScreenShots";
-            this.cbScreenShots.Size = new System.Drawing.Size(120, 17);
-            this.cbScreenShots.TabIndex = 16;
-            this.cbScreenShots.Text = "Output Screenshots";
-            this.cbScreenShots.UseVisualStyleBackColor = true;
+            this.CbFilteredOutput.AutoSize = true;
+            this.CbFilteredOutput.Enabled = false;
+            this.CbFilteredOutput.Location = new System.Drawing.Point(65, 412);
+            this.CbFilteredOutput.Name = "CbFilteredOutput";
+            this.CbFilteredOutput.Size = new System.Drawing.Size(224, 17);
+            this.CbFilteredOutput.TabIndex = 16;
+            this.CbFilteredOutput.Text = "Just Output Unfiltered Hosts (skip request)";
+            this.CbFilteredOutput.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(524, 441);
-            this.Controls.Add(this.cbScreenShots);
+            this.Controls.Add(this.CbFilteredOutput);
             this.Controls.Add(this.cbDebug);
             this.Controls.Add(this.btnLoadFilters);
             this.Controls.Add(this.btnClearFilter);
@@ -324,7 +325,7 @@
         private System.Windows.Forms.Button btnLoadURLS;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.CheckBox cbDebug;
-        private System.Windows.Forms.CheckBox cbScreenShots;
+        private System.Windows.Forms.CheckBox CbFilteredOutput;
     }
 }
 

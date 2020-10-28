@@ -6,8 +6,10 @@ using System.IO;
 using System.Xml;
 using System.Runtime.InteropServices;
 using System.Net.Http;
-using OpenQA.Selenium;
-using OpenQA.Selenium.Firefox;
+//using OpenQA.Selenium;
+//using OpenQA.Selenium.Firefox;
+using System.Drawing.Imaging;
+using System.Management.Instrumentation;
 
 //using Freezer.Core;
 
@@ -53,15 +55,25 @@ namespace Wan_Thingy
             bg.RunWorkerAsync();
             return;
         }
+
         public void screenie(string urlol)
         {
+            // dont reinvent the wheel, using gowitness instead
+            /*
+            System.Uri uri = new System.Uri(urlol);
             FirefoxOptions fe = new FirefoxOptions();
             fe.AcceptInsecureCertificates = true;
             IWebDriver driver = new FirefoxDriver(fe);
+            driver.Manage().Window.Maximize();
+
             driver.Navigate().GoToUrl(urlol);
+            ITakesScreenshot scrdriver = driver as ITakesScreenshot;
+            Screenshot screenshot = scrdriver.GetScreenshot();
+            screenshot.SaveAsFile(uri.Host + ".png", OpenQA.Selenium.ScreenshotImageFormat.Png);
+            */
+            /*
             
-            
-            /*var screenShotJob = ScreenshotJobBuilder.Create(urlol)
+            var screenShotJob = ScreenshotJobBuilder.Create(urlol)
                .SetCaptureZone(CaptureZone.FullPage)
               .SetBrowserSize(600, 800)
               .SetTrigger(new WindowLoadTrigger())
@@ -85,8 +97,7 @@ namespace Wan_Thingy
             if (cbDebug.Checked)
             {
                 tstcounter = 4;
-                if (cbScreenShots.Checked)
-                    screenie(uri);
+               
             }
 
             
@@ -116,8 +127,7 @@ namespace Wan_Thingy
                 if (tstcounter == 3)
                 {
                     password = "admin123";
-                    if (cbScreenShots.Checked)
-                        screenie(uri);
+                   
                 }
                 string encoded = System.Convert.ToBase64String(System.Text.Encoding.GetEncoding("ISO-8859-1").GetBytes(username + ":" + password));
                 request.Headers.Add("Authorization", "Basic " + encoded);
@@ -151,7 +161,6 @@ namespace Wan_Thingy
                         request.UserAgent = "Mozilla/4.0 (compatible; MSIE 7.0; America Online Browser 1.1; Windows NT 5.1; (R1 1.5); .NET CLR 2.0.50727; InfoPath.1)";
                         break;
                 }
-
                 HttpWebResponse response = (HttpWebResponse)request.GetResponse(); // make request
                 if (response.StatusCode == HttpStatusCode.Unauthorized) // 401 / unauthorized? go back and try again with another password
                                                                         // never makes it here, put it in the catch statement with a check
@@ -172,6 +181,8 @@ namespace Wan_Thingy
 
                 using (StreamReader kek = new StreamReader(stream))
                 {
+                    if (CbFilteredOutput.Checked) // bug, fix soon
+                    { return "skipping..."; }
                     Char[] fuk = new char[4096]; // fuck yes, speed shit up by only reading the first 4 kb
                     kek.Read(fuk, 0, fuk.Length);
                     string s = new string(fuk);
@@ -219,15 +230,17 @@ namespace Wan_Thingy
                     StreamWriter sw = new StreamWriter(filename, true);
                     int percent = (x + 1) * 100 / tbHostList.Lines.Length;
                     string contents = Get(tbHostList.Lines[x]);
-                    sw.WriteLine("========================= " + tbHostList.Lines[x] + " =======================================\r\n\r\n");
+                    sw.WriteLine("xXxXxXxXxXxXx " + tbHostList.Lines[x] + " xXxXxXxXxXxXx\r\n\r\n");
                     if (excludelist != "")
                     {
+                        
                         sw.WriteLine("================================================================\r\n\r\n ");
                         sw.WriteLine(handleit(contents));
                         sw.WriteLine("\r\n\r\n");
                     }
                     else
                     {
+
                         sw.WriteLine("================================================================\r\n\r\n ");
                         sw.WriteLine(handleit(contents));
                         sw.WriteLine("\r\n\r\n");
