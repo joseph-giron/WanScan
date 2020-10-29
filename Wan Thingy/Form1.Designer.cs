@@ -57,8 +57,8 @@
             // 
             // button1
             // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(312, 382);
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(309, 382);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 25);
             this.button1.TabIndex = 0;
@@ -86,7 +86,7 @@
             // 
             // button2
             // 
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.Location = new System.Drawing.Point(444, 382);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 25);
@@ -105,9 +105,10 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(362, 176);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(103, 13);
+            this.label1.Size = new System.Drawing.Size(120, 13);
             this.label1.TabIndex = 4;
             this.label1.Text = "Status: Not Running";
             // 
@@ -123,33 +124,36 @@
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(12, 235);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(113, 13);
+            this.label2.Size = new System.Drawing.Size(131, 13);
             this.label2.TabIndex = 6;
             this.label2.Text = "Exclude These Strings";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(12, 6);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(92, 13);
+            this.label3.Size = new System.Drawing.Size(103, 13);
             this.label3.TabIndex = 7;
             this.label3.Text = "URL List To Scan";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(309, 90);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(48, 13);
+            this.label4.Size = new System.Drawing.Size(54, 13);
             this.label4.TabIndex = 8;
             this.label4.Text = "Timeout:";
             // 
             // tbTimeOut
             // 
-            this.tbTimeOut.Location = new System.Drawing.Point(379, 87);
+            this.tbTimeOut.Location = new System.Drawing.Point(387, 87);
             this.tbTimeOut.Name = "tbTimeOut";
             this.tbTimeOut.Size = new System.Drawing.Size(39, 20);
             this.tbTimeOut.TabIndex = 9;
@@ -158,9 +162,10 @@
             // label5
             // 
             this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(309, 30);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(63, 13);
+            this.label5.Size = new System.Drawing.Size(73, 13);
             this.label5.TabIndex = 8;
             this.label5.Text = "User Agent:";
             // 
@@ -178,7 +183,7 @@
             "Firefox",
             "Chrome",
             "America Online"});
-            this.lbUA.Location = new System.Drawing.Point(379, 27);
+            this.lbUA.Location = new System.Drawing.Point(387, 27);
             this.lbUA.Name = "lbUA";
             this.lbUA.Size = new System.Drawing.Size(132, 54);
             this.lbUA.TabIndex = 12;
@@ -186,14 +191,16 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(424, 90);
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(432, 90);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(64, 13);
+            this.label6.Size = new System.Drawing.Size(75, 13);
             this.label6.TabIndex = 8;
             this.label6.Text = "(in seconds)";
             // 
             // btnClearURL
             // 
+            this.btnClearURL.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClearURL.Location = new System.Drawing.Point(228, 207);
             this.btnClearURL.Name = "btnClearURL";
             this.btnClearURL.Size = new System.Drawing.Size(75, 25);
@@ -204,6 +211,7 @@
             // 
             // btnClearFilter
             // 
+            this.btnClearFilter.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClearFilter.Location = new System.Drawing.Point(228, 382);
             this.btnClearFilter.Name = "btnClearFilter";
             this.btnClearFilter.Size = new System.Drawing.Size(75, 25);
@@ -224,6 +232,7 @@
             // 
             // btnLoadFilters
             // 
+            this.btnLoadFilters.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLoadFilters.Location = new System.Drawing.Point(12, 382);
             this.btnLoadFilters.Name = "btnLoadFilters";
             this.btnLoadFilters.Size = new System.Drawing.Size(75, 25);
@@ -234,6 +243,7 @@
             // 
             // btnLoadURLS
             // 
+            this.btnLoadURLS.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLoadURLS.Location = new System.Drawing.Point(12, 207);
             this.btnLoadURLS.Name = "btnLoadURLS";
             this.btnLoadURLS.Size = new System.Drawing.Size(75, 25);
@@ -246,9 +256,10 @@
             // cbDebug
             // 
             this.cbDebug.AutoSize = true;
-            this.cbDebug.Location = new System.Drawing.Point(312, 412);
+            this.cbDebug.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbDebug.Location = new System.Drawing.Point(309, 412);
             this.cbDebug.Name = "cbDebug";
-            this.cbDebug.Size = new System.Drawing.Size(174, 17);
+            this.cbDebug.Size = new System.Drawing.Size(202, 17);
             this.cbDebug.TabIndex = 15;
             this.cbDebug.Text = "Don\'t Try Passwords (just scan)";
             this.cbDebug.UseVisualStyleBackColor = true;
@@ -257,9 +268,10 @@
             // 
             this.CbFilteredOutput.AutoSize = true;
             this.CbFilteredOutput.Enabled = false;
-            this.CbFilteredOutput.Location = new System.Drawing.Point(65, 412);
+            this.CbFilteredOutput.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CbFilteredOutput.Location = new System.Drawing.Point(12, 412);
             this.CbFilteredOutput.Name = "CbFilteredOutput";
-            this.CbFilteredOutput.Size = new System.Drawing.Size(224, 17);
+            this.CbFilteredOutput.Size = new System.Drawing.Size(264, 17);
             this.CbFilteredOutput.TabIndex = 16;
             this.CbFilteredOutput.Text = "Just Output Unfiltered Hosts (skip request)";
             this.CbFilteredOutput.UseVisualStyleBackColor = true;
@@ -268,6 +280,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.ClientSize = new System.Drawing.Size(524, 441);
             this.Controls.Add(this.CbFilteredOutput);
             this.Controls.Add(this.cbDebug);
@@ -290,12 +303,14 @@
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "Form1";
-            this.Text = "JoeDan";
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
+            this.Text = "Wan Scan";
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.Paint += new System.Windows.Forms.PaintEventHandler(this.Form1_Paint);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

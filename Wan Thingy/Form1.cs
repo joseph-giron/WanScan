@@ -6,23 +6,18 @@ using System.IO;
 using System.Xml;
 using System.Runtime.InteropServices;
 using System.Net.Http;
-//using OpenQA.Selenium;
-//using OpenQA.Selenium.Firefox;
 using System.Drawing.Imaging;
 using System.Management.Instrumentation;
-
-//using Freezer.Core;
 
 namespace Wan_Thingy
 {
     public partial class Form1 : Form
     {
-        
         public Form1()
         {
             InitializeComponent();
         }
-        
+        public bool skipornot;
         public string filename = "";
         public string excludelist = "";
         StringComparison comp = StringComparison.OrdinalIgnoreCase;
@@ -55,41 +50,7 @@ namespace Wan_Thingy
             bg.RunWorkerAsync();
             return;
         }
-
-        public void screenie(string urlol)
-        {
-            // dont reinvent the wheel, using gowitness instead
-            /*
-            System.Uri uri = new System.Uri(urlol);
-            FirefoxOptions fe = new FirefoxOptions();
-            fe.AcceptInsecureCertificates = true;
-            IWebDriver driver = new FirefoxDriver(fe);
-            driver.Manage().Window.Maximize();
-
-            driver.Navigate().GoToUrl(urlol);
-            ITakesScreenshot scrdriver = driver as ITakesScreenshot;
-            Screenshot screenshot = scrdriver.GetScreenshot();
-            screenshot.SaveAsFile(uri.Host + ".png", OpenQA.Selenium.ScreenshotImageFormat.Png);
-            */
-            /*
-            
-            var screenShotJob = ScreenshotJobBuilder.Create(urlol)
-               .SetCaptureZone(CaptureZone.FullPage)
-              .SetBrowserSize(600, 800)
-              .SetTrigger(new WindowLoadTrigger())
-              .SetTimeout(TimeSpan.FromSeconds(Convert.ToInt32(tbTimeOut.Text)));
-            System.Uri uri = new System.Uri(urlol);
-            try
-            {
-                File.WriteAllBytes(uri.Host + ".png", screenShotJob.Freeze());
-                return;
-            }
-            catch(Exception)
-            {
-                return;
-            }
-            */
-        }
+       
         public string Get(string uri)
         {
             string testexception = "The remote server returned an error: (401) Unauthorized.";
@@ -97,16 +58,13 @@ namespace Wan_Thingy
             if (cbDebug.Checked)
             {
                 tstcounter = 4;
-               
             }
-
-            
+           
             string username = "admin";
             string password = "";
             here:
             try
             {
-
                 // default is admin /  no password
                 // ignore ssl error and force TLS 1.2
                 ServicePointManager.SecurityProtocol = (SecurityProtocolType)3072;
@@ -163,7 +121,7 @@ namespace Wan_Thingy
                 }
                 HttpWebResponse response = (HttpWebResponse)request.GetResponse(); // make request
                 if (response.StatusCode == HttpStatusCode.Unauthorized) // 401 / unauthorized? go back and try again with another password
-                                                                        // never makes it here, put it in the catch statement with a check
+                // never makes it here, put it in the catch statement with a check
                 {
                     tstcounter++;
                     goto here; // fuck yeah, goto! 
@@ -172,7 +130,7 @@ namespace Wan_Thingy
                 // not a 401? 
                 Stream stream = response.GetResponseStream();
 
-                if (response.ContentType == "image/jpeg") // bug
+                if (response.ContentType == "image/jpeg") // bug fixes vvvvvvvvv
                     return "jpeg file";
                 if (response.ContentType == "multipart/x-mixed-replace; boundary=--BoundaryString")
                     return "another weird jpeg server thingy";
@@ -181,12 +139,12 @@ namespace Wan_Thingy
 
                 using (StreamReader kek = new StreamReader(stream))
                 {
-                    if (CbFilteredOutput.Checked) // bug, fix soon
-                    { return "skipping..."; }
                     Char[] fuk = new char[4096]; // fuck yes, speed shit up by only reading the first 4 kb
                     kek.Read(fuk, 0, fuk.Length);
                     string s = new string(fuk);
-                    return s.Trim('\0'); // now it stops with the extra null byte shit. Keeps output smaller. 
+                    Uri uuu = new Uri(uri);
+                    // maybe we do our filters within the request instead of on the loop where we write files?
+                    return handleit(s.Trim('\0'), uuu); // now it stops with the extra null byte shit. Keeps output smaller. 
                 }
             }
             catch (Exception ex)
@@ -205,61 +163,54 @@ namespace Wan_Thingy
             }
         }
 
-        public string handleit(string cock)
+        public string handleit(string cock, Uri uritest)
         {
             for (int y = 0; y < tbExcludeList.Lines.Length; y++)
             {
                 string contents = tbExcludeList.Lines[y];
                 if (cock.Contains(contents, comp))
-                {
+                { 
                     return "Filtered some BS out...\r\n\r\n";
                 }
             }
-            return cock;
+            if (CbFilteredOutput.Checked) // just return the hostname and port
+            { return uritest.Host + ":" + uritest.Port.ToString() + "\r\n\r\n"; }
+            return uritest.Host + ":" + uritest.Port.ToString() + "\r\n\r\n" + cock; // just return contents HTML style
 
         }
         private void bg_DoWork(object sender, DoWorkEventArgs e)
         {
                 for (int x = 0; x < tbHostList.Lines.Length; x++)
                 {
-                if(bg.CancellationPending)
-                {
+                    if(bg.CancellationPending)
+                    {
                     e.Cancel = true;
                     break;
-                }
-                    StreamWriter sw = new StreamWriter(filename, true);
-                    int percent = (x + 1) * 100 / tbHostList.Lines.Length;
-                    string contents = Get(tbHostList.Lines[x]);
-                    sw.WriteLine("xXxXxXxXxXxXx " + tbHostList.Lines[x] + " xXxXxXxXxXxXx\r\n\r\n");
-                    if (excludelist != "")
-                    {
-                        
-                        sw.WriteLine("================================================================\r\n\r\n ");
-                        sw.WriteLine(handleit(contents));
-                        sw.WriteLine("\r\n\r\n");
                     }
-                    else
-                    {
+                StreamWriter sw = new StreamWriter(filename, true);
+                int percent = (x + 1) * 100 / tbHostList.Lines.Length;
+                string contents = Get(tbHostList.Lines[x]);
+                //  sw.WriteLine("========================= " + tbHostList.Lines[x] + " =======================================\r\n\r\n");
+                sw.WriteLine("===================================================================\r\n\r\n");
+                // vvvvvvvvvvvv should return the URI and port followed by a new line entry plus the HTML, or just the URI and port entry if we want to skip.
+                sw.WriteLine(contents); // checked for filtered shit within get() function instead
+                // so i guess we need a way to only return the hostlist entry if the item isnt filtered?  maybe do it within get() and write the URI there? but
+                // only if the CbFilteredOutput item is checked. Otherwise, just leave the above function alone. 
+                // scratch that, we're doing checking for that checkbox and returning of proper hostline data 
+                sw.WriteLine("\r\n\r\n");
+                sw.WriteLine("==================================END==============================\r\n\r\n");
+                label1.Text = "Working on item " + x.ToString() + " of " + tbHostList.Lines.Length.ToString();
+                bg.ReportProgress(percent);
+                sw.Close();
+                
+                
+            }
 
-                        sw.WriteLine("================================================================\r\n\r\n ");
-                        sw.WriteLine(handleit(contents));
-                        sw.WriteLine("\r\n\r\n");
-                    }
-
-                    sw.WriteLine("==================================END==============================\r\n\r\n");
-                    label1.Text = "Working on item " + x.ToString() + " of " + tbHostList.Lines.Length.ToString();
-                    bg.ReportProgress(percent);
-                    sw.Close();
-                }
-
-            
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            
             bg.CancelAsync();
-            
             // test
             pb.Value = 100;
             button1.Enabled = true;
@@ -293,7 +244,6 @@ namespace Wan_Thingy
                 bg.CancelAsync();
                 return;
             }
-
             pb.Value = e.ProgressPercentage;
         }
 
@@ -308,7 +258,6 @@ namespace Wan_Thingy
             else
             {
                 label1.Text = "Status: Completed :D";
-                
             }
             
             button1.Enabled = true;
@@ -325,7 +274,6 @@ namespace Wan_Thingy
         private void btnClearURL_Click(object sender, EventArgs e)
         {
             tbHostList.Clear();
-   
         }
 
         private void btnClearFilter_Click(object sender, EventArgs e)
@@ -351,26 +299,8 @@ namespace Wan_Thingy
                 }
                 if (Path.GetExtension(filename) == ".txt")
                     tbHostList.Text = File.ReadAllText(filename);
-                if (Path.GetExtension(filename) == ".xml")
-                    ReadSomeXML(filename);
-
-            }
-
-        }
-        private void ReadSomeXML(string filename)
-        {
-            // what a god damned pain in the fucking dick.
-            // I'll try this again later. for now, loading text is fine by me 
-            XmlDocument xmlDoc = new XmlDocument();
-            xmlDoc.Load(filename);
-            XmlNodeList nls = xmlDoc.SelectNodes("//host/address");
-            foreach (XmlNode mynode in nls)
-            {
-                mynode.SelectNodes("//addr");
-                tbHostList.Text += "http://" + (mynode.Attributes["address"].Value + ": " + mynode.Attributes["portid"].Value);
             }
         }
-
         private void btnLoadFilters_Click(object sender, EventArgs e)
         {
             OpenFileDialog ofd = new OpenFileDialog()
@@ -388,6 +318,12 @@ namespace Wan_Thingy
                 }
                 tbExcludeList.Text = File.ReadAllText(filename);
             }
+        }
+
+        private void Form1_Paint(object sender, PaintEventArgs e)
+        {
+            //ControlPaint.
+            ControlPaint.DrawBorder(e.Graphics, ClientRectangle, System.Drawing.Color.Black, ButtonBorderStyle.Outset);
         }
     }
     public static class StringExtensions

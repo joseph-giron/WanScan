@@ -1,17 +1,23 @@
 First we obtain our IP ranges and CDIR's from the regional internet registries 
 RIPE, APNIC, ARIN, LACNIC, AFRINIC
-Place CDIR's and IP ranges, one per line into a text file.
+Place CDIR's and IP ranges, one per line into a text file. XML file is meh.
 
-Second run masscan with our input as the ranges we just saved and look for common web ports, save output as xml
-masscan --rate 5000 -p80,81,82,83,443,457,832,981,1080,1100,1241,1311,1352,1944,2080,2020,4080,3000,4567,5000,5104,7000,7001,7443,7777,10444,7783,8448,8023,9981,12443,9080,9090,8001,8008,8009,8080,8081,8083,8088,8089,8443,8834,8800,8888,8180,9000,8000,4000,4001,4002,4100,4040,4004,4044,4343,4434,4443,4444,8090,9443,9444,10443 -iL ./obtained_ranges.txt -oX ./live_webhosts.xml
+Second run masscan with our input as the ranges we just saved and look for common web ports, save output as a list
 
-Next we grab the 2 columns we want from the xml file (host and port) and paste them into either 'Wan Scan', or 'Wan Scan Console' and we filter out the crap we dont want. Wan Scan / Console can output a file containing the useful URI's for gowitness.
+masscan --rate 5000 -p80,81,82,83,443,457,832,981,1080,1100,1241,1311,1352,1944,2080,2020,4080,3000,4567,5000,5104,7000,7001,7443,7777,10444,7783,8448,8023,9981,12443,9080,9090,8001,8008,8009,8080,8081,8083,8088,8089,8443,8834,8800,8888,8180,9000,8000,4000,4001,4002,4100,4040,4004,4044,4343,4434,4443,4444,8090,9443,9444,10443 -iL ./obtained_ranges.txt -oL ./live_webhosts.txt
 
-Third
-run gowitness on our outputted Wan Scan / Console application
+Third run this on output
+cat live_webhosts.txt | awk '{print "http://"$4":"$3}' >  wanscan_hosts.txt
+
+Fourth load output text file into 'Wan Scan', or 'Wan Scan Console' and we filter out the crap we dont want or output the HTML. Wan Scan / Console can output a file containing the useful URI's for gowitness.
+
+Right now, we just output the uri along with the html, but lets work with this...
+cat WanScan_Output.txt | grep -a '==== http' | sed 's/========================= //' | sed 's/=======================================//' > Wan_Scan_go.txt
+
+
+Fifth run gowitness on our outputted Wan Scan / Console application output file.
 gowitness file -f Wan_Scan_go.txt -t 100 --timeout 5 -F
 
-
-after running gowitness, run this in screenshots to change extensions to pictures:
+Sixth after running gowitness, run this in screenshots folder to change extensions to pictures:
 for f in *.*; do mv -- "$f" "${f%}.png"; done
 

@@ -208,7 +208,9 @@ namespace WanThingConsole
                     Char[] fuk = new char[4096]; // fuck yes, speed shit up by only reading the first 4 kb
                     kek.Read(fuk, 0, fuk.Length);
                     string s = new string(fuk);
-                    return s.Trim('\0'); // now it stops with the extra null byte shit. Keeps output smaller. 
+                    Uri uuu = new Uri(uri);
+                    // maybe we do our filters within the request instead of on the loop where we write files?
+                    return handleit(s.Trim('\0'), uuu); // now it stops with the extra null byte shit. Keeps output smaller. 
                 }
             }
             catch (Exception ex)
@@ -227,22 +229,8 @@ namespace WanThingConsole
             }
         }
 
-        public static string handleit(string cock)
+        public static string handleit(string cock, Uri uritest)
         {
-            //string contents = File.ReadAllText(filterfile);
-            //
-            //    if (cock.Contains(contents, comp))
-            //          if(contents.Contains(cock,comp))
-            //            {
-            //               return "Filtered some BS out...\r\n\r\n";
-            //          }
-
-
-            //    return cock;
-
-
-            // for (int y = 0; y < tbExcludeList.Lines.Length; y++)
-
             String[] lines = File.ReadAllLines(filterfile);
             for (int y = 0; y < lines.Length; y++)
             {
@@ -254,10 +242,6 @@ namespace WanThingConsole
                 }
             }
             return cock;
-
-
-
-
         }
 
         private static void DoStuff()
@@ -270,18 +254,8 @@ namespace WanThingConsole
                 StreamWriter sw = new StreamWriter(outfile, true);
                 string contents = Get(line, 5 , "Google Bot");
                 sw.WriteLine("========================= " + line + " =======================================\r\n\r\n");
-                if (File.ReadAllText(filterfile) != "")
-                {
-                    sw.WriteLine("================================================================\r\n\r\n ");
-                    sw.WriteLine(handleit(contents));
-                    sw.WriteLine("\r\n\r\n");
-                }
-                else
-                {
-                    sw.WriteLine("================================================================\r\n\r\n ");
-                    sw.WriteLine(handleit(contents));
-                    sw.WriteLine("\r\n\r\n");
-                }
+                sw.WriteLine(contents);
+                sw.WriteLine("\r\n\r\n");
                 sw.WriteLine("==================================END==============================\r\n\r\n");
                 Console.WriteLine("Working on item " + x.ToString() + " of " + lines.Length);
                 sw.Close();
