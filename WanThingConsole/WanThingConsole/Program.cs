@@ -13,7 +13,7 @@ namespace WanThingConsole
 {
     class Program
     {
-        static bool debug = false;
+        static bool debug, hostsonly = false;
         public static string outfile;
         static StringComparison comp = StringComparison.OrdinalIgnoreCase;
         public static string filterfile = "latestfilters.txt";
@@ -112,9 +112,13 @@ namespace WanThingConsole
             
             if (args.Length >=2 && args[1].Equals("skip"))
                 debug = true;
+            if (args.Length >= 2 && args[1].Equals("hostsonly"))
+                hostsonly = true;
+            if (args.Length >= 3 && args[2].Equals("skip"))
+                debug = true;
+            if (args.Length >= 3 && args[2].Equals("hostsonly"))
+                hostsonly = true;
             DoStuff();
-            
-
         }
         public static string Get(string uri, int timeout, string UA)
         {
@@ -238,10 +242,14 @@ namespace WanThingConsole
                 string contents = lines[y];
                 if (cock.Contains(contents, comp))
                 {
-                    return "Filtered some BS out...\r\n\r\n";
+                    if (hostsonly)
+                    { return "Filtered some BS out on " + uritest.Host + ":" + uritest.Port.ToString(); }
+                    return "Filtered some BS out...";
                 }
             }
-            return cock;
+            if (hostsonly) // just return the hostname and port
+            { return uritest.Host + ":" + uritest.Port.ToString(); }
+            return uritest.Host + ":" + uritest.Port.ToString() + "\r\n\r\n" + cock; // just return contents HTML style
         }
 
         private static void DoStuff()
@@ -253,9 +261,8 @@ namespace WanThingConsole
             {
                 StreamWriter sw = new StreamWriter(outfile, true);
                 string contents = Get(line, 5 , "Google Bot");
-                sw.WriteLine("========================= " + line + " =======================================\r\n\r\n");
-                sw.WriteLine(contents);
-                sw.WriteLine("\r\n\r\n");
+                sw.WriteLine("===================================================================\r\n\r\n");
+                sw.WriteLine("###### " + contents + " ######\r\n\r\n");
                 sw.WriteLine("==================================END==============================\r\n\r\n");
                 Console.WriteLine("Working on item " + x.ToString() + " of " + lines.Length);
                 sw.Close();

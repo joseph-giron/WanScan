@@ -169,8 +169,11 @@ namespace Wan_Thingy
             {
                 string contents = tbExcludeList.Lines[y];
                 if (cock.Contains(contents, comp))
-                { 
-                    return "Filtered some BS out...\r\n\r\n";
+                {
+                    if (CbFilteredOutput.Checked)
+                    { skipornot = true; return "Filtered some BS out on " + uritest.Host + ":" + uritest.Port.ToString() + "\r\n\r\n"; ; }
+
+                   return "Filtered some BS out...\r\n\r\n";
                 }
             }
             if (CbFilteredOutput.Checked) // just return the hostname and port
@@ -190,18 +193,22 @@ namespace Wan_Thingy
                 StreamWriter sw = new StreamWriter(filename, true);
                 int percent = (x + 1) * 100 / tbHostList.Lines.Length;
                 string contents = Get(tbHostList.Lines[x]);
+                if (skipornot)
+                { 
+                    // found a filtered item, but dont want to output "filtered some BS out". Or do we? Maybe we should with the host and port?
+                }
                 //  sw.WriteLine("========================= " + tbHostList.Lines[x] + " =======================================\r\n\r\n");
                 sw.WriteLine("===================================================================\r\n\r\n");
                 // vvvvvvvvvvvv should return the URI and port followed by a new line entry plus the HTML, or just the URI and port entry if we want to skip.
-                sw.WriteLine(contents); // checked for filtered shit within get() function instead
+                sw.WriteLine("###### "+contents+" ######\r\n\r\n"); // checked for filtered shit within get() function instead
                 // so i guess we need a way to only return the hostlist entry if the item isnt filtered?  maybe do it within get() and write the URI there? but
                 // only if the CbFilteredOutput item is checked. Otherwise, just leave the above function alone. 
                 // scratch that, we're doing checking for that checkbox and returning of proper hostline data 
-                sw.WriteLine("\r\n\r\n");
                 sw.WriteLine("==================================END==============================\r\n\r\n");
                 label1.Text = "Working on item " + x.ToString() + " of " + tbHostList.Lines.Length.ToString();
                 bg.ReportProgress(percent);
                 sw.Close();
+                skipornot = false;
                 
                 
             }
@@ -226,7 +233,9 @@ namespace Wan_Thingy
         }
         private void Form1_Load(object sender, EventArgs e)
         {
-            if(File.Exists("latestfilters.txt"))
+            if (CbFilteredOutput.Checked)
+                skipornot = true;
+            if (File.Exists("latestfilters.txt"))
             { 
                 tbExcludeList.Text = File.ReadAllText("latestfilters.txt");
             }

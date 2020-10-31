@@ -106,7 +106,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(362, 176);
+            this.label1.Location = new System.Drawing.Point(309, 176);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(120, 13);
             this.label1.TabIndex = 4;
@@ -267,7 +267,6 @@
             // CbFilteredOutput
             // 
             this.CbFilteredOutput.AutoSize = true;
-            this.CbFilteredOutput.Enabled = false;
             this.CbFilteredOutput.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CbFilteredOutput.Location = new System.Drawing.Point(12, 412);
             this.CbFilteredOutput.Name = "CbFilteredOutput";
