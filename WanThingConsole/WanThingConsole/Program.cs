@@ -243,13 +243,13 @@ namespace WanThingConsole
                 if (cock.Contains(contents, comp))
                 {
                     if (hostsonly)
-                    { return "Filtered some BS out on " + uritest.Host + ":" + uritest.Port.ToString(); }
-                    return "Filtered some BS out...";
+                    { return "####### Filtered some BS out on " + uritest.Host + ":" + uritest.Port.ToString() + " #######"; }
+                    return "####### Filtered some BS out... #######";
                 }
             }
             if (hostsonly) // just return the hostname and port
-            { return uritest.Host + ":" + uritest.Port.ToString(); }
-            return uritest.Host + ":" + uritest.Port.ToString() + "\r\n\r\n" + cock; // just return contents HTML style
+            { return "####### " +uritest.Host + ":" + uritest.Port.ToString() + " #######"; }
+            return "####### " + uritest.Host + ":" + uritest.Port.ToString() + " #######" + "\r\n\r\n" + cock; // just return contents HTML style
         }
 
         private static void DoStuff()
@@ -260,10 +260,10 @@ namespace WanThingConsole
             foreach (string line in lines)
             {
                 StreamWriter sw = new StreamWriter(outfile, true);
-                string contents = Get(line, 5 , "Google Bot");
+                string contents = Get(line, 5 , "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36");
                 sw.WriteLine("===================================================================\r\n\r\n");
-                sw.WriteLine("###### " + contents + " ######\r\n\r\n");
-                sw.WriteLine("==================================END==============================\r\n\r\n");
+                sw.WriteLine(contents + "\r\n\r\n");
+                sw.WriteLine("================================END================================\r\n\r\n");
                 Console.WriteLine("Working on item " + x.ToString() + " of " + lines.Length);
                 sw.Close();
                 x++;
