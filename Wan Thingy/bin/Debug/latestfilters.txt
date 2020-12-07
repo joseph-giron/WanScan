@@ -1,3 +1,9 @@
+siteID = document.getElementById('textID').value;
+var lt = "?WebVersion=@WebVersion@"
+<title>RADIX - Alrit</title>
+<form action="/cgi-bin/login.exe" method="post" name="tF"
+<meta HTTP-EQUIV="refresh" CONTENT="0;URL=/cgi-bin/cgi?req=twz">
+/Main_Login.asp?error_status=1&page=index.asp&
 Welcome to Synology Web Station
 <title>Web Viewer for DVR</title>
 <title>Wisenet NVR</title>
@@ -195,7 +201,7 @@ function checkIPv6(v)
 "/Remote/Javascript/ramjsfx.menu.css"
 "images/meraki-logo.png"
 <title>IIS Windows</title>
-/doc/page/login.asp?_
+window.location.href = "/doc/page/login.asp?_" + (new Date()).getTime();
 doc/script/LAB.min.js
 Web Viewer for Samsung DVR
 jumpURL.substr(0,6).toLowerCase();
