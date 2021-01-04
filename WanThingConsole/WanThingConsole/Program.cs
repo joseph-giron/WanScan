@@ -197,13 +197,13 @@ namespace WanThingConsole
                 if (cock.Contains(contents, comp))
                 {
                     if (hostsonly)
-                    { return "####### Filtered some BS out on " + uritest.Host + ":" + uritest.Port.ToString() + " #######"; }
+                    { return "####### Filtered some BS out on " + uritest.AbsoluteUri + ":" + uritest.Port.ToString() + " #######"; }
                     return "####### Filtered some BS out... #######";
                 }
             }
             if (hostsonly) // just return the hostname and port
-            { return "####### " +uritest.Host + ":" + uritest.Port.ToString() + " #######"; }
-            return "####### " + uritest.Host + ":" + uritest.Port.ToString() + " #######" + "\r\n\r\n" + cock; // just return contents HTML style
+            { return "####### " +uritest.AbsoluteUri + ":" + uritest.Port.ToString() + " #######"; }
+            return "####### " + uritest.AbsoluteUri + ":" + uritest.Port.ToString() + " #######" + "\r\n\r\n" + cock; // just return contents HTML style
         }
 
         private static void DoStuff()
