@@ -171,9 +171,9 @@ namespace Wan_Thingy
                 if (cock.Contains(contents, comp))
                 {
                     if (CbFilteredOutput.Checked)
-                    { skipornot = true; return "Filtered some BS out on " + uritest.Host + ":" + uritest.Port.ToString() + "\r\n\r\n"; ; }
+                    { skipornot = true; return "Filtered some BS out on " + uritest.Host + ":" + uritest.Port.ToString() + "\r\n\r\n";  }
 
-                   return "Filtered some BS out...\r\n\r\n";
+                    return "Filtered some BS out on " + uritest.Host + ":" + uritest.Port.ToString() + "\r\n\r\n";
                 }
             }
             if (CbFilteredOutput.Checked) // just return the hostname and port
@@ -197,14 +197,16 @@ namespace Wan_Thingy
                 { 
                     // found a filtered item, but dont want to output "filtered some BS out". Or do we? Maybe we should with the host and port?
                 }
-                //  sw.WriteLine("========================= " + tbHostList.Lines[x] + " =======================================\r\n\r\n");
-                sw.WriteLine("===================================================================\r\n\r\n");
-                // vvvvvvvvvvvv should return the URI and port followed by a new line entry plus the HTML, or just the URI and port entry if we want to skip.
-                sw.WriteLine(contents + "\r\n\r\n"); // checked for filtered shit within get() function instead
-                // so i guess we need a way to only return the hostlist entry if the item isnt filtered?  maybe do it within get() and write the URI there? but
-                // only if the CbFilteredOutput item is checked. Otherwise, just leave the above function alone. 
-                // scratch that, we're doing checking for that checkbox and returning of proper hostline data 
-                sw.WriteLine("==================================END==============================\r\n\r\n");
+                if (contents.Contains("<html", comp) || contents.Contains("<meta", comp) || contents.Contains("Filtered some BS", comp))
+                {
+                    //  sw.WriteLine("========================= " + tbHostList.Lines[x] + " =======================================\r\n\r\n");
+                    // vvvvvvvvvvvv should return the URI and port followed by a new line entry plus the HTML, or just the URI and port entry if we want to skip.
+                    sw.WriteLine(contents + "\r\n\r\n"); // checked for filtered shit within get() function instead
+                                                         // so i guess we need a way to only return the hostlist entry if the item isnt filtered?  maybe do it within get() and write the URI there? but
+                                                         // only if the CbFilteredOutput item is checked. Otherwise, just leave the above function alone. 
+                                                         // scratch that, we're doing checking for that checkbox and returning of proper hostline data 
+                    sw.WriteLine("==================================END==============================\r\n\r\n");
+                }
                 label1.Text = "Working on item " + x.ToString() + " of " + tbHostList.Lines.Length.ToString();
                 bg.ReportProgress(percent);
                 sw.Close();
