@@ -25,7 +25,7 @@ namespace WanThingConsole
             Console.WriteLine("                    .8888888888888888.");
             Console.WriteLine("                    888888888888888888");
             Console.WriteLine(" |==============|   88' _`88'_  `88888");
-            Console.WriteLine(" |Windows Sucks!|   88 88 88 88  88888");
+            Console.WriteLine(" |Windows Blows!|   88 88 88 88  88888");
             Console.WriteLine(" |=======|======|   88_88_::_88_:88888");
             Console.WriteLine("         |          88:::,::,:::::8888");
             Console.WriteLine("         |_________ 88`:::::::::'`8888");
@@ -88,7 +88,6 @@ namespace WanThingConsole
             here:
             try
             {
-
                 // default is admin /  no password
                 // ignore ssl error and force TLS 1.2
                 ServicePointManager.SecurityProtocol = (SecurityProtocolType)3072;
@@ -108,7 +107,7 @@ namespace WanThingConsole
                 }
                 if (tstcounter == 3)
                 {
-                    password = "admin123";
+                    password = "password1";
                 }
                 string encoded = System.Convert.ToBase64String(System.Text.Encoding.GetEncoding("ISO-8859-1").GetBytes(username + ":" + password));
                 request.Headers.Add("Authorization", "Basic " + encoded);
@@ -200,7 +199,7 @@ namespace WanThingConsole
                 }
             }
             if (hostsonly) // just return the hostname and port
-            { return "####### " +uritest.OriginalString + " #######"; }
+            { return "#_#_#_#_#_#_# " + uritest.OriginalString + " #_#_#_#_#_#_#"; }
             return "####### " + uritest.OriginalString +  " #######" + "\r\n\r\n" + clock; // just return contents HTML style
         }
 
@@ -213,7 +212,7 @@ namespace WanThingConsole
             {
                 StreamWriter sw = new StreamWriter(outfile, true);
                 string contents = Get(line, 5 , "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36");
-                if (contents.Contains("<html",comp) || contents.Contains("<meta",comp) || contents.Contains("Filtered some BS",comp))
+                if (contents.Contains("<html",comp) || contents.Contains("<meta",comp) || contents.Contains("Filtered some BS",comp) || contents.Contains("#_#_#_#_#_#_#", comp))
                 {
                     sw.WriteLine(contents + "\r\n\r\n");
                     sw.WriteLine("================================END================================\r\n\r\n");

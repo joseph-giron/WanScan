@@ -17,7 +17,6 @@ namespace Wan_Thingy
         {
             InitializeComponent();
         }
-        public bool skipornot;
         public string filename = "";
         public string excludelist = "";
         StringComparison comp = StringComparison.OrdinalIgnoreCase;
@@ -84,7 +83,7 @@ namespace Wan_Thingy
                 }
                 if (tstcounter == 3)
                 {
-                    password = "admin123";
+                    password = "password1"; // I never see 'admin123', switch to password1.
                    
                 }
                 string encoded = System.Convert.ToBase64String(System.Text.Encoding.GetEncoding("ISO-8859-1").GetBytes(username + ":" + password));
@@ -143,8 +142,7 @@ namespace Wan_Thingy
                     kek.Read(fuk, 0, fuk.Length);
                     string s = new string(fuk);
                     Uri uuu = new Uri(uri);
-                    // maybe we do our filters within the request instead of on the loop where we write files?
-                    return handleit(s.Trim('\0'), uuu); // now it stops with the extra null byte shit. Keeps output smaller. 
+                    return handleit(s.Trim('\0'), uuu);
                 }
             }
             catch (Exception ex)
@@ -163,22 +161,19 @@ namespace Wan_Thingy
             }
         }
 
-        public string handleit(string cock, Uri uritest)
+        public string handleit(string rock, Uri uritest)
         {
             for (int y = 0; y < tbExcludeList.Lines.Length; y++)
             {
                 string contents = tbExcludeList.Lines[y];
-                if (cock.Contains(contents, comp))
+                if (rock.Contains(contents, comp))
                 {
-                    if (CbFilteredOutput.Checked)
-                    { skipornot = true; return "Filtered some BS out on " + uritest.Host + ":" + uritest.Port.ToString() + "\r\n\r\n";  }
-
-                    return "Filtered some BS out on " + uritest.Host + ":" + uritest.Port.ToString() + "\r\n\r\n";
+                   return "Filtered some BS out on " + uritest.Host + ":" + uritest.Port.ToString() + "\r\n\r\n";
                 }
             }
             if (CbFilteredOutput.Checked) // just return the hostname and port
-            { return "####### " + uritest.Host + ":" + uritest.Port.ToString() + " #######\r\n\r\n"; }
-            return "####### " + uritest.Host + ":" + uritest.Port.ToString() + " #######\r\n\r\n" + cock; // just return contents HTML style
+            { return "#_#_#_#_#_#_# " + uritest.Host + ":" + uritest.Port.ToString() + " #_#_#_#_#_#_#\r\n\r\n"; }
+            return "####### " + uritest.Host + ":" + uritest.Port.ToString() + " #######\r\n\r\n" + rock; // just return contents HTML style
 
         }
         private void bg_DoWork(object sender, DoWorkEventArgs e)
@@ -193,30 +188,16 @@ namespace Wan_Thingy
                 StreamWriter sw = new StreamWriter(filename, true);
                 int percent = (x + 1) * 100 / tbHostList.Lines.Length;
                 string contents = Get(tbHostList.Lines[x]);
-                if (skipornot)
-                { 
-                    // found a filtered item, but dont want to output "filtered some BS out". Or do we? Maybe we should with the host and port?
-                }
-                if (contents.Contains("<html", comp) || contents.Contains("<meta", comp) || contents.Contains("Filtered some BS", comp))
+                if (contents.Contains("<html", comp) || contents.Contains("<meta", comp) || contents.Contains("Filtered some BS", comp) || contents.Contains("#_#_#_#_#_#_#",comp))
                 {
-                    //  sw.WriteLine("========================= " + tbHostList.Lines[x] + " =======================================\r\n\r\n");
-                    // vvvvvvvvvvvv should return the URI and port followed by a new line entry plus the HTML, or just the URI and port entry if we want to skip.
-                    sw.WriteLine(contents + "\r\n\r\n"); // checked for filtered shit within get() function instead
-                                                         // so i guess we need a way to only return the hostlist entry if the item isnt filtered?  maybe do it within get() and write the URI there? but
-                                                         // only if the CbFilteredOutput item is checked. Otherwise, just leave the above function alone. 
-                                                         // scratch that, we're doing checking for that checkbox and returning of proper hostline data 
+                    sw.WriteLine(contents + "\r\n\r\n"); 
                     sw.WriteLine("==================================END==============================\r\n\r\n");
                 }
                 label1.Text = "Working on item " + x.ToString() + " of " + tbHostList.Lines.Length.ToString();
                 bg.ReportProgress(percent);
                 sw.Close();
-                skipornot = false;
-                
-                
-            }
-
+              }
         }
-
         private void button2_Click(object sender, EventArgs e)
         {
             bg.CancelAsync();
@@ -235,8 +216,6 @@ namespace Wan_Thingy
         }
         private void Form1_Load(object sender, EventArgs e)
         {
-            if (CbFilteredOutput.Checked)
-                skipornot = true;
             if (File.Exists("latestfilters.txt"))
             { 
                 tbExcludeList.Text = File.ReadAllText("latestfilters.txt");
@@ -258,10 +237,8 @@ namespace Wan_Thingy
             pb.Value = e.ProgressPercentage;
         }
 
-
         private void bg_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
-        
             if(e.Cancelled)
             {
                 label1.Text = "Status: Cancelled!!!";
@@ -270,7 +247,6 @@ namespace Wan_Thingy
             {
                 label1.Text = "Status: Completed :D";
             }
-            
             button1.Enabled = true;
             tbHostList.Enabled = true;
             tbExcludeList.Enabled = true;
@@ -298,6 +274,7 @@ namespace Wan_Thingy
             {
                 FileName = "Select a file...",
                 Filter = "Text Files (*.txt)|*.txt",
+                // fuck XML
                 // Filter = "XML Files (*.xml)|*.xml|Text Files (*.txt)|*.txt",
                 Title = "Open text file"
             };
@@ -333,7 +310,6 @@ namespace Wan_Thingy
 
         private void Form1_Paint(object sender, PaintEventArgs e)
         {
-            //ControlPaint.
             ControlPaint.DrawBorder(e.Graphics, ClientRectangle, System.Drawing.Color.Black, ButtonBorderStyle.Outset);
         }
     }
