@@ -8,6 +8,8 @@ using System.Runtime.InteropServices;
 using System.Net.Http;
 using System.Drawing.Imaging;
 using System.Management.Instrumentation;
+using System.Security.Cryptography;
+using System.Text;
 
 namespace Wan_Thingy
 {
@@ -17,6 +19,7 @@ namespace Wan_Thingy
         {
             InitializeComponent();
         }
+        
         public string filename = "";
         public string excludelist = "";
         StringComparison comp = StringComparison.OrdinalIgnoreCase;
@@ -138,11 +141,16 @@ namespace Wan_Thingy
 
                 using (StreamReader kek = new StreamReader(stream))
                 {
+                    // so sick of this fucking endpoint firewall, this is the ONLY way to get rid of it.
+                    Char[] md5check = new char[261];
+                    kek.Read(md5check, 0, md5check.Length);
+                    string e = new string(md5check);
+                    
                     Char[] fuk = new char[4096]; // fuck yes, speed shit up by only reading the first 4 kb
                     kek.Read(fuk, 0, fuk.Length);
                     string s = new string(fuk);
                     Uri uuu = new Uri(uri);
-                    return handleit(s.Trim('\0'), uuu);
+                    return handleit(s.Trim('\0'), uuu, e);
                 }
             }
             catch (Exception ex)
@@ -160,9 +168,21 @@ namespace Wan_Thingy
                 }
             }
         }
-
-        public string handleit(string rock, Uri uritest)
+        public string Md5ToString(string md5check)
         {
+            MD5 mD = MD5.Create();
+            byte[] array2 = mD.ComputeHash(Encoding.ASCII.GetBytes(md5check));
+            string md5text = "";
+            for (int i = 0; i < array2.Length; i++)
+            {
+                md5text += string.Format("{0:X2}", array2[i]);
+            }
+            return md5text;
+        }
+
+        public string handleit(string rock, Uri uritest, string md5check)
+        {
+ 
             for (int y = 0; y < tbExcludeList.Lines.Length; y++)
             {
                 string contents = tbExcludeList.Lines[y];
@@ -173,6 +193,8 @@ namespace Wan_Thingy
             }
             if (CbFilteredOutput.Checked) // just return the hostname and port
             { return "#_#_#_#_#_#_# " + uritest.Host + ":" + uritest.Port.ToString() + " #_#_#_#_#_#_#\r\n\r\n"; }
+            // so sick of this fucking endpoint firewall, this is the ONLY way to get rid of it.
+            string md5_val = Md5ToString(md5check); if (md5_val == "C435CBD159B4356B02B144148635AD80") { return "Filtered some BS out on " + uritest.Host + ":" + uritest.Port.ToString() + "\r\n\r\n"; } 
             return "####### " + uritest.Host + ":" + uritest.Port.ToString() + " #######\r\n\r\n" + rock; // just return contents HTML style
 
         }

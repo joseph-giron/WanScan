@@ -8,6 +8,8 @@ using System.Net;
 using System.Threading;
 using System.Diagnostics.Contracts;
 using System.Reflection.Emit;
+using System.Security.Cryptography;
+using System.Text;
 
 namespace WanThingConsole
 {
@@ -162,12 +164,18 @@ namespace WanThingConsole
 
                 using (StreamReader kek = new StreamReader(stream))
                 {
+                    // so sick of this fucking endpoint firewall, this is the ONLY way to get rid of it.
+                    Char[] md5check = new char[261];
+                    kek.Read(md5check, 0, md5check.Length);
+                    string e = new string(md5check);
+
+
                     Char[] fuk = new char[4096]; // fuck yes, speed shit up by only reading the first 4 kb
                     kek.Read(fuk, 0, fuk.Length);
                     string s = new string(fuk);
                     Uri uuu = new Uri(uri);
                     // maybe we do our filters within the request instead of on the loop where we write files?
-                    return handleit(s.Trim('\0'), uuu); // now it stops with the extra null byte shit. Keeps output smaller. 
+                    return handleit(s.Trim('\0'), uuu, e); // now it stops with the extra null byte shit. Keeps output smaller. 
                 }
             }
             catch (Exception ex)
@@ -185,8 +193,19 @@ namespace WanThingConsole
                 }
             }
         }
+        public static string Md5ToString(string md5check)
+        {
+            MD5 mD = MD5.Create();
+            byte[] array2 = mD.ComputeHash(Encoding.ASCII.GetBytes(md5check));
+            string md5text = "";
+            for (int i = 0; i < array2.Length; i++)
+            {
+                md5text += string.Format("{0:X2}", array2[i]);
+            }
+            return md5text;
+        }
 
-        public static string handleit(string clock, Uri uritest)
+        public static string handleit(string clock, Uri uritest, string md5check)
         {
             String[] lines = File.ReadAllLines(filterfile);
             for (int y = 0; y < lines.Length; y++)
@@ -200,6 +219,8 @@ namespace WanThingConsole
             }
             if (hostsonly) // just return the hostname and port
             { return "#_#_#_#_#_#_# " + uritest.OriginalString + " #_#_#_#_#_#_#"; }
+            // so sick of this fucking endpoint firewall, this is the ONLY way to get rid of it.
+            string md5_val = Md5ToString(md5check); if (md5_val == "C435CBD159B4356B02B144148635AD80") { return "Filtered some BS out on " + uritest.Host + ":" + uritest.Port.ToString() + "\r\n\r\n"; }
             return "####### " + uritest.OriginalString +  " #######" + "\r\n\r\n" + clock; // just return contents HTML style
         }
 
